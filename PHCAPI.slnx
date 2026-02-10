@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Modules/" />
+  <Folder Name="/src/Modules/Parameters/">
+    <Project Path="src/Modules/Parameters/Parameters.API/Parameters.API.csproj" />
+    <Project Path="src/Modules/Parameters/Parameters.Application/Parameters.Application.csproj" />
+    <Project Path="src/Modules/Parameters/Parameters.Domain/Parameters.Domain.csproj" />
+    <Project Path="src/Modules/Parameters/Parameters.Infrastructure/Parameters.Infrastructure.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  parameters-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: parameters-api
+    ports:
+      - "5001:80"
+      - "5002:443"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - ConnectionStrings__ParametersConnection=Server=sqlserver;Database=SGOFAPI_Parameters;User Id=sa;Password=YourStrong@Password123;TrustServerCertificate=True;
+    depends_on:
+      - sqlserver
+    networks:
+      - sgofapi-network
+    restart: unless-stopped
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver-parameters
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong@Password123
+      - MSSQL_PID=Developer
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    networks:
+      - sgofapi-network
+    restart: unless-stopped
+
+networks:
+  sgofapi-network:
+    driver: bridge
+
+volumes:
+  sqlserver-data:
