@@ -1,0 +1,5 @@
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Kernel\obj\Debug\net8.0\Shared.Kernel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Kernel\obj\Debug\net8.0\Shared.Kernel.AssemblyInfoInputs.cache
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Kernel\obj\Debug\net8.0\Shared.Kernel.AssemblyInfo.cs
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Kernel\obj\Debug\net8.0\Shared.Kernel.csproj.CoreCompileInputs.cache
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Kernel\obj\Debug\net8.0\Shared.Kernel.sourcelink.json

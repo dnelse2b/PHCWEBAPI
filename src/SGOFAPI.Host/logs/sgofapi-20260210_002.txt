@@ -1,0 +1,62 @@
+2026-02-10 14:56:11.513 +02:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-02-10 14:56:11.611 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-02-10 14:56:11.622 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-02-10 14:56:11.625 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-02-10 14:56:11.655 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-02-10 14:56:11.685 +02:00 [INF] No migrations were applied. The database is already up to date.
+2026-02-10 14:56:11.690 +02:00 [INF] Database migration completed successfully
+2026-02-10 14:56:11.830 +02:00 [INF] Starting SGOFAPI - Modular Monolith...
+2026-02-10 14:56:12.085 +02:00 [INF] Now listening on: https://localhost:7282
+2026-02-10 14:56:12.092 +02:00 [INF] Now listening on: http://localhost:5269
+2026-02-10 14:56:12.195 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-10 14:56:12.197 +02:00 [INF] Hosting environment: Development
+2026-02-10 14:56:12.200 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host
+2026-02-10 14:57:44.650 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-02-10 14:57:44.727 +02:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-02-10 14:57:44.736 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-02-10 14:57:44.746 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-02-10 14:57:44.776 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-02-10 14:57:44.800 +02:00 [INF] No migrations were applied. The database is already up to date.
+2026-02-10 14:57:44.809 +02:00 [INF] Database migration completed successfully
+2026-02-10 14:57:44.866 +02:00 [INF] Starting SGOFAPI - Modular Monolith...
+2026-02-10 14:57:44.950 +02:00 [INF] Now listening on: https://localhost:5001
+2026-02-10 14:57:44.961 +02:00 [INF] Now listening on: http://localhost:5000
+2026-02-10 14:57:45.016 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-10 14:57:45.020 +02:00 [INF] Hosting environment: Development
+2026-02-10 14:57:45.022 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host
+2026-02-10 14:57:46.309 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - null null
+2026-02-10 14:57:46.655 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - 301 null null 350.6065ms
+2026-02-10 14:57:46.666 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/index.html - null null
+2026-02-10 14:57:46.837 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger-ui-bundle.js - null null
+2026-02-10 14:57:46.837 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger-ui.css - null null
+2026-02-10 14:57:46.837 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger-ui-standalone-preset.js - null null
+2026-02-10 14:57:46.840 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/index.html - 200 null text/html;charset=utf-8 174.322ms
+2026-02-10 14:57:46.840 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-10 14:57:46.841 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2026-02-10 14:57:46.918 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 16509 application/javascript; charset=utf-8 77.5786ms
+2026-02-10 14:57:46.918 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-02-10 14:57:46.921 +02:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-02-10 14:57:46.940 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger-ui-standalone-preset.js - 200 312163 text/javascript 102.2312ms
+2026-02-10 14:57:46.941 +02:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-02-10 14:57:46.944 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger-ui.css - 200 144929 text/css 106.6112ms
+2026-02-10 14:57:46.973 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger-ui-bundle.js - 200 1061536 text/javascript 135.2693ms
+2026-02-10 14:57:47.038 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 196.8831ms
+2026-02-10 14:57:47.141 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2026-02-10 14:57:47.162 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/favicon-32x32.png - null null
+2026-02-10 14:57:47.173 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-02-10 14:57:47.176 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 34.325ms
+2026-02-10 14:57:47.183 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/favicon-32x32.png - 200 628 image/png 20.5967ms

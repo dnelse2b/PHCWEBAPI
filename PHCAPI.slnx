@@ -1,5 +1,10 @@
 <Solution>
-  <Folder Name="/src/" />
+  <Folder Name="/docs/">
+    <File Path="Arquitecture Build Guide.md" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/SGOFAPI.Host/SGOFAPI.Host.csproj" />
+  </Folder>
   <Folder Name="/src/Modules/" />
   <Folder Name="/src/Modules/Parameters/">
     <Project Path="src/Modules/Parameters/Parameters.API/Parameters.API.csproj" />

@@ -1,0 +1,51 @@
+2026-02-10 14:55:26.520 +02:00 [INF] Executed DbCommand (433ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [ParametersDb];
+2026-02-10 14:55:26.731 +02:00 [INF] Executed DbCommand (123ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [ParametersDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2026-02-10 14:55:26.758 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-02-10 14:55:26.839 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2026-02-10 14:55:26.847 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-02-10 14:55:26.862 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-02-10 14:55:26.877 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-02-10 14:55:26.895 +02:00 [INF] No migrations were applied. The database is already up to date.
+2026-02-10 14:55:26.902 +02:00 [INF] Database migration completed successfully
+2026-02-10 14:55:27.101 +02:00 [INF] Starting PHCAPI - Modular Monolith...
+2026-02-10 14:55:27.440 +02:00 [INF] Now listening on: https://localhost:7282
+2026-02-10 14:55:27.443 +02:00 [INF] Now listening on: http://localhost:5269
+2026-02-10 14:55:27.531 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-10 14:55:27.538 +02:00 [INF] Hosting environment: Development
+2026-02-10 14:55:27.540 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\PHCAPI.Host
+2026-02-10 14:56:11.513 +02:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-02-10 14:56:11.611 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-02-10 14:56:11.622 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-02-10 14:56:11.625 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-02-10 14:56:11.655 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-02-10 14:56:11.685 +02:00 [INF] No migrations were applied. The database is already up to date.
+2026-02-10 14:56:11.690 +02:00 [INF] Database migration completed successfully
+2026-02-10 14:56:11.830 +02:00 [INF] Starting PHCAPI - Modular Monolith...
+2026-02-10 14:56:12.085 +02:00 [INF] Now listening on: https://localhost:7282
+2026-02-10 14:56:12.092 +02:00 [INF] Now listening on: http://localhost:5269
+2026-02-10 14:56:12.195 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-10 14:56:12.197 +02:00 [INF] Hosting environment: Development
+2026-02-10 14:56:12.200 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\PHCAPI.Host
