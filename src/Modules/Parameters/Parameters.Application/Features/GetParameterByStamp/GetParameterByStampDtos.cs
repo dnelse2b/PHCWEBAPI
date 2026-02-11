@@ -1,26 +1,17 @@
 namespace Parameters.Application.Features.GetParameterByStamp;
 
-/// <summary>
-/// DTO de resposta para Parâmetro individual
-/// </summary>
 public record ParameterDto
 {
-    public string E1Stamp { get; init; } = string.Empty;
-    public string Code { get; init; } = string.Empty;
-    public string Description { get; init; } = string.Empty;
-    public bool Active { get; init; }
-    public string? CreatedBy { get; init; }
-    public DateTime CreatedAt { get; init; }
-    public E4Dto? E4 { get; init; }
-}
-
-/// <summary>
-/// DTO para E4
-/// </summary>
-public record E4Dto
-{
-    public string E4Stamp { get; init; } = string.Empty;
-    public string Value { get; init; } = string.Empty;
-    public string? AdditionalInfo { get; init; }
-    public int Sequence { get; init; }
+    public string ParaStamp { get; init; } = string.Empty;
+    public string Descricao { get; init; } = string.Empty;
+    public string Valor { get; init; } = string.Empty;
+    public string Tipo { get; init; } = string.Empty;
+    public int? Dec { get; init; }
+    public int? Tam { get; init; }
+    public DateTime OUsrData { get; init; }
+    public string OUsrHora { get; init; } = string.Empty;
+    public string? OUsrInis { get; init; }
+    public DateTime? UsrData { get; init; }
+    public string? UsrHora { get; init; }
+    public string? UsrInis { get; init; }
 }

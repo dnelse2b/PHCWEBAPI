@@ -5,62 +5,69 @@ using Parameters.Domain.Entities;
 namespace Parameters.Infrastructure.Persistence;
 
 /// <summary>
-/// Configuração EF Core para entidade E1
+/// Configuração EF Core para entidade Para1
 /// </summary>
-public class E1Configuration : IEntityTypeConfiguration<E1>
+public class Para1Configuration : IEntityTypeConfiguration<Para1>
 {
-    public void Configure(EntityTypeBuilder<E1> builder)
+    public void Configure(EntityTypeBuilder<Para1> builder)
     {
-        builder.ToTable("e1");
+        builder.ToTable("para1");
 
-        builder.HasKey(e => e.E1Stamp);
+        builder.HasKey(p => p.ParaStamp);
 
-        builder.Property(e => e.E1Stamp)
-            .HasColumnName("e1stamp")
+        builder.Property(p => p.ParaStamp)
+            .HasColumnName("parastamp")
             .HasMaxLength(50)
             .IsRequired();
 
-        builder.Property(e => e.Code)
-            .HasColumnName("code")
-            .HasMaxLength(50)
+        builder.Property(p => p.Descricao)
+            .HasColumnName("descricao")
+            .HasMaxLength(200)
             .IsRequired();
 
-        builder.Property(e => e.Description)
-            .HasColumnName("description")
+        builder.Property(p => p.Valor)
+            .HasColumnName("valor")
             .HasMaxLength(500)
             .IsRequired();
 
-        builder.Property(e => e.Active)
-            .HasColumnName("active")
+        builder.Property(p => p.Tipo)
+            .HasColumnName("tipo")
+            .HasMaxLength(50)
             .IsRequired();
 
-        builder.Property(e => e.CreatedAt)
-            .HasColumnName("created_at")
+        builder.Property(p => p.Dec)
+            .HasColumnName("dec");
+
+        builder.Property(p => p.Tam)
+            .HasColumnName("tam");
+
+        // Campos de auditoria PHC
+        builder.Property(p => p.OUsrData)
+            .HasColumnName("ousrdata")
             .IsRequired();
 
-        builder.Property(e => e.UpdatedAt)
-            .HasColumnName("updated_at");
+        builder.Property(p => p.OUsrHora)
+            .HasColumnName("ousrhora")
+            .HasMaxLength(8)
+            .IsRequired();
 
-        builder.Property(e => e.CreatedBy)
-            .HasColumnName("created_by")
+        builder.Property(p => p.OUsrInis)
+            .HasColumnName("ousrinis")
             .HasMaxLength(100);
 
-        builder.Property(e => e.UpdatedBy)
-            .HasColumnName("updated_by")
-            .HasMaxLength(100);
+        builder.Property(p => p.UsrData)
+            .HasColumnName("usrdata");
 
-        // Relationship with E4 (1:1)
-        builder.HasOne(e => e.E4)
-            .WithOne(e => e.E1)
-            .HasForeignKey<E4>(e => e.E4Stamp)
-            .OnDelete(DeleteBehavior.Cascade);
+        builder.Property(p => p.UsrHora)
+            .HasColumnName("usrhora")
+            .HasMaxLength(8);
+
+        builder.Property(p => p.UsrInis)
+            .HasColumnName("usrinis")
+            .HasMaxLength(100);
 
         // Indexes
-        builder.HasIndex(e => e.Code)
-            .IsUnique()
-            .HasDatabaseName("IX_e1_code");
-
-        builder.HasIndex(e => e.Active)
-            .HasDatabaseName("IX_e1_active");
+        builder.HasIndex(p => p.Descricao).HasDatabaseName("idx_para1_descricao");
+        builder.HasIndex(p => p.OUsrData).HasDatabaseName("idx_para1_ousrdata");
     }
 }

@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "Parameters.API.Controllers.ParametersController",
+    "ContainingType": "Parameters.Presentation.REST.Controllers.ParametersController",
     "Method": "GetAll",
     "RelativePath": "api/parameters",
     "HttpMethod": "GET",
@@ -31,7 +31,7 @@
     ]
   },
   {
-    "ContainingType": "Parameters.API.Controllers.ParametersController",
+    "ContainingType": "Parameters.Presentation.REST.Controllers.ParametersController",
     "Method": "Create",
     "RelativePath": "api/parameters",
     "HttpMethod": "POST",
@@ -69,15 +69,15 @@
     ]
   },
   {
-    "ContainingType": "Parameters.API.Controllers.ParametersController",
+    "ContainingType": "Parameters.Presentation.REST.Controllers.ParametersController",
     "Method": "GetByStamp",
-    "RelativePath": "api/parameters/{e1Stamp}",
+    "RelativePath": "api/parameters/{paraStamp}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "e1Stamp",
+        "Name": "paraStamp",
         "Type": "System.String",
         "IsRequired": true
       }
@@ -107,15 +107,15 @@
     ]
   },
   {
-    "ContainingType": "Parameters.API.Controllers.ParametersController",
+    "ContainingType": "Parameters.Presentation.REST.Controllers.ParametersController",
     "Method": "Update",
-    "RelativePath": "api/parameters/{e1Stamp}",
+    "RelativePath": "api/parameters/{paraStamp}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "e1Stamp",
+        "Name": "paraStamp",
         "Type": "System.String",
         "IsRequired": true
       },
@@ -157,15 +157,15 @@
     ]
   },
   {
-    "ContainingType": "Parameters.API.Controllers.ParametersController",
+    "ContainingType": "Parameters.Presentation.REST.Controllers.ParametersController",
     "Method": "Delete",
-    "RelativePath": "api/parameters/{e1Stamp}",
+    "RelativePath": "api/parameters/{paraStamp}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "e1Stamp",
+        "Name": "paraStamp",
         "Type": "System.String",
         "IsRequired": true
       }

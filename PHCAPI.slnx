@@ -3,13 +3,18 @@
     <File Path="Arquitecture Build Guide.md" />
   </Folder>
   <Folder Name="/src/">
-    <Project Path="src/SGOFAPI.Host/SGOFAPI.Host.csproj" />
+    <Project Path="src/SGOFAPI.Host/PHCAPI.Host.csproj" />
   </Folder>
   <Folder Name="/src/Modules/" />
   <Folder Name="/src/Modules/Parameters/">
-    <Project Path="src/Modules/Parameters/Parameters.API/Parameters.API.csproj" />
     <Project Path="src/Modules/Parameters/Parameters.Application/Parameters.Application.csproj" />
     <Project Path="src/Modules/Parameters/Parameters.Domain/Parameters.Domain.csproj" />
     <Project Path="src/Modules/Parameters/Parameters.Infrastructure/Parameters.Infrastructure.csproj" />
+    <Project Path="src/Modules/Parameters/Parameters.Presentation/Parameters.Presentation.csproj" />
+  </Folder>
+  <Folder Name="/src/Shared/">
+    <Project Path="src/Shared/Shared.Application/Shared.Application/Shared.Application.csproj" />
+    <Project Path="src/Shared/Shared.Infrastructure/Shared.Infrastructure/Shared.Infrastructure.csproj" />
+    <Project Path="src/Shared/Shared.Kernel/Shared.Kernel/Shared.Kernel.csproj" />
   </Folder>
 </Solution>

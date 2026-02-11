@@ -1,12 +1,10 @@
 namespace Parameters.Application.Features.UpdateParameter;
 
-/// <summary>
-/// DTO de entrada para atualização de Parâmetro (usado no Controller)
-/// </summary>
 public record UpdateParameterDto
 {
-    public string Code { get; init; } = string.Empty;
-    public string Description { get; init; } = string.Empty;
-    public bool Active { get; init; }
-    public UpdateE4Dto? E4Details { get; init; }
+    public string Descricao { get; init; } = string.Empty;
+    public string Valor { get; init; } = string.Empty;
+    public string Tipo { get; init; } = string.Empty;
+    public int? Dec { get; init; }
+    public int? Tam { get; init; }
 }

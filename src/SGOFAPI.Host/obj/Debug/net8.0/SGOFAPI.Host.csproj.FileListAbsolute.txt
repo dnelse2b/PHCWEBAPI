@@ -1,3 +1,4 @@
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Parameters.Presentation.staticwebassets.endpoints.json
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\appsettings.json
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\SGOFAPI.Host.staticwebassets.endpoints.json
@@ -9,8 +10,9 @@ C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\SGOFA
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Azure.Identity.dll
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\FluentValidation.dll
-C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Mapster.dll
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Mapster.Core.dll
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\MediatR.dll
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\MediatR.Contracts.dll
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
@@ -63,11 +65,13 @@ C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\runti
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Parameters.API.dll
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Parameters.Application.dll
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Parameters.Domain.dll
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Parameters.Infrastructure.dll
-C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Parameters.API.pdb
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Parameters.Presentation.dll
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Shared.Kernel.dll
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Parameters.Presentation.pdb
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Shared.Kernel.pdb
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Parameters.Application.pdb
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Parameters.Domain.pdb
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Parameters.Infrastructure.pdb
@@ -77,6 +81,7 @@ C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\SGOFA
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\SGOFAPI.Host.AssemblyInfoInputs.cache
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\SGOFAPI.Host.AssemblyInfo.cs
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\SGOFAPI.Host.csproj.CoreCompileInputs.cache
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\SGOFAPI.Host.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\SGOFAPI.Host.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\SGOFAPI.Host.sourcelink.json
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\rjimswa.dswa.cache.json
@@ -88,13 +93,10 @@ C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\stati
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\swae.build.ex.cache
-C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\SGOFAPI..E331FC19.Up2Date
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\SGOFAPI.Host.dll
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\refint\SGOFAPI.Host.dll
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\SGOFAPI.Host.pdb
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\SGOFAPI.Host.genruntimeconfig.cache
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\ref\SGOFAPI.Host.dll
-C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Shared.Kernel.dll
-C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Shared.Kernel.pdb
-C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\SGOFAPI.Host.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

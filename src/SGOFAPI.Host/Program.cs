@@ -1,4 +1,4 @@
-using Parameters.API;
+using Parameters.Presentation;
 using Parameters.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -16,29 +16,43 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog();
 
-// ✅ Exception Handling (ProblemDetails RFC 7807)
-builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
-builder.Services.AddProblemDetails();
+try
+{
+    // ✅ Exception Handling (ProblemDetails RFC 7807)
+    builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+    builder.Services.AddProblemDetails();
 
-// Add Modules
-builder.Services.AddParametersModule(builder.Configuration);
+    // ✅ Add Parameters Module (Application + Infrastructure + Presentation)
+    builder.Services.AddParametersPresentation(
+        builder.Configuration,
+        enableRest: true,
+        enableGraphQL: false
+    );
 
-// Add Controllers and API Explorer
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
+    // Add Controllers and API Explorer
+    builder.Services.AddControllers();
+    builder.Services.AddEndpointsApiExplorer();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Error during service configuration: {Message}", ex.Message);
+    if (ex.InnerException != null)
+        Log.Fatal(ex.InnerException, "Inner exception: {Message}", ex.InnerException.Message);
+    throw;
+}
 
 // Configure Swagger
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new()
     {
-        Title = "SGOFAPI - Modular Monolith",
+        Title = "PHCAPI",
         Version = "v1",
-        Description = "API Modular com Clean Architecture - Módulos: Parameters, etc.",
+        Description = "PHC API",
         Contact = new()
         {
-            Name = "SGOFAPI Team",
-            Email = "team@sgofapi.com"
+            Name = "2Business Team",
+            Email = "suporte.mz@2business-si.com"
         }
     });
 
@@ -51,7 +65,7 @@ builder.Services.AddSwaggerGen(c =>
     }
 
     // Parameters module XML
-    var parametersXml = "Parameters.API.xml";
+    var parametersXml = "Parameters.Presentation.xml";
     var parametersXmlPath = Path.Combine(AppContext.BaseDirectory, parametersXml);
     if (File.Exists(parametersXmlPath))
     {
@@ -70,7 +84,29 @@ builder.Services.AddCors(options =>
     });
 });
 
-var app = builder.Build();
+WebApplication app;
+
+try
+{
+    Log.Information("Building application...");
+    app = builder.Build();
+    Log.Information("Application built successfully");
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Failed to build application: {Message}", ex.Message);
+
+    if (ex is AggregateException aggEx)
+    {
+        foreach (var innerEx in aggEx.InnerExceptions)
+        {
+            Log.Fatal(innerEx, "Inner exception: {Message}", innerEx.Message);
+        }
+    }
+
+    Log.CloseAndFlush();
+    throw;
+}
 
 // ✅ Exception Handler Middleware (DEVE vir primeiro!)
 app.UseExceptionHandler();
@@ -111,7 +147,7 @@ app.MapControllers();
 
 try
 {
-    Log.Information("Starting SGOFAPI - Modular Monolith...");
+   
     app.Run();
 }
 catch (Exception ex)

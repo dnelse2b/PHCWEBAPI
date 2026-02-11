@@ -1,0 +1,12 @@
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Application\Shared.Application\bin\Debug\net8.0\Shared.Application.deps.json
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Application\Shared.Application\bin\Debug\net8.0\Shared.Application.dll
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Application\Shared.Application\bin\Debug\net8.0\Shared.Application.pdb
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Application\Shared.Application\obj\Debug\net8.0\Shared.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Application\Shared.Application\obj\Debug\net8.0\Shared.Application.AssemblyInfoInputs.cache
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Application\Shared.Application\obj\Debug\net8.0\Shared.Application.AssemblyInfo.cs
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Application\Shared.Application\obj\Debug\net8.0\Shared.Application.csproj.CoreCompileInputs.cache
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Application\Shared.Application\obj\Debug\net8.0\Shared.Application.sourcelink.json
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Application\Shared.Application\obj\Debug\net8.0\Shared.Application.dll
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Application\Shared.Application\obj\Debug\net8.0\refint\Shared.Application.dll
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Application\Shared.Application\obj\Debug\net8.0\Shared.Application.pdb
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Application\Shared.Application\obj\Debug\net8.0\ref\Shared.Application.dll

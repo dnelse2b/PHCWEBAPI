@@ -13,15 +13,13 @@ public class ParametersDbContext : DbContext
     {
     }
 
-    public DbSet<E1> E1 { get; set; } = null!;
-    public DbSet<E4> E4 { get; set; } = null!;
+    public DbSet<Para1> Para1 { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
         // Apply configurations
-        modelBuilder.ApplyConfiguration(new E1Configuration());
-        modelBuilder.ApplyConfiguration(new E4Configuration());
+        modelBuilder.ApplyConfiguration(new Para1Configuration());
     }
 }

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -18,11 +18,13 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Mapster" Version="7.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Parameters.Domain\Parameters.Domain.csproj" />
     <ProjectReference Include="..\Parameters.Application\Parameters.Application.csproj" />
+    <ProjectReference Include="..\..\..\Shared\Shared.Kernel\Shared.Kernel\Shared.Kernel.csproj" />
   </ItemGroup>
 
 </Project>

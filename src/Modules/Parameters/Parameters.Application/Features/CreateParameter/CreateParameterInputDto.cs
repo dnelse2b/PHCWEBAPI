@@ -1,11 +1,11 @@
 namespace Parameters.Application.Features.CreateParameter;
 
-/// <summary>
-/// DTO de entrada para criação de Parâmetro (usado no Controller)
-/// </summary>
+
 public record CreateParameterDto
 {
-    public string Code { get; init; } = string.Empty;
-    public string Description { get; init; } = string.Empty;
-    public CreateE4Dto? E4Details { get; init; }
+    public string Descricao { get; init; } = string.Empty;
+    public string Valor { get; init; } = string.Empty;
+    public string Tipo { get; init; } = string.Empty;
+    public int? Dec { get; init; }
+    public int? Tam { get; init; }
 }

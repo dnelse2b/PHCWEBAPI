@@ -105,14 +105,14 @@
         }
       }
     },
-    "/api/parameters/{e1Stamp}": {
+    "/api/parameters/{paraStamp}": {
       "get": {
         "tags": [
           "Parameters"
         ],
         "parameters": [
           {
-            "name": "e1Stamp",
+            "name": "paraStamp",
             "in": "path",
             "required": true,
             "schema": {
@@ -159,7 +159,7 @@
         ],
         "parameters": [
           {
-            "name": "e1Stamp",
+            "name": "paraStamp",
             "in": "path",
             "required": true,
             "schema": {
@@ -235,7 +235,7 @@
         ],
         "parameters": [
           {
-            "name": "e1Stamp",
+            "name": "paraStamp",
             "in": "path",
             "required": true,
             "schema": {
@@ -280,37 +280,30 @@
   },
   "components": {
     "schemas": {
-      "CreateE4Dto": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "nullable": true
-          },
-          "additionalInfo": {
-            "type": "string",
-            "nullable": true
-          },
-          "sequence": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
       "CreateParameterDto": {
         "type": "object",
         "properties": {
-          "code": {
+          "descricao": {
             "type": "string",
             "nullable": true
           },
-          "description": {
+          "valor": {
             "type": "string",
             "nullable": true
           },
-          "e4Details": {
-            "$ref": "#/components/schemas/CreateE4Dto"
+          "tipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "dec": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "tam": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -349,40 +342,30 @@
         },
         "additionalProperties": false
       },
-      "UpdateE4Dto": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "nullable": true
-          },
-          "additionalInfo": {
-            "type": "string",
-            "nullable": true
-          },
-          "sequence": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
       "UpdateParameterDto": {
         "type": "object",
         "properties": {
-          "code": {
+          "descricao": {
             "type": "string",
             "nullable": true
           },
-          "description": {
+          "valor": {
             "type": "string",
             "nullable": true
           },
-          "active": {
-            "type": "boolean"
+          "tipo": {
+            "type": "string",
+            "nullable": true
           },
-          "e4Details": {
-            "$ref": "#/components/schemas/UpdateE4Dto"
+          "dec": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "tam": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
