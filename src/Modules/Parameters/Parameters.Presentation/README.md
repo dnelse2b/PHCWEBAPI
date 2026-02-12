@@ -41,10 +41,10 @@ services.AddParametersPresentation(
 
 **Endpoints REST:**
 - `GET /api/parameters` - Listar todos
-- `GET /api/parameters/{paraStamp}` - Buscar por stamp
+- `GET /api/parameters/{para1Stamp}` - Buscar por stamp
 - `POST /api/parameters` - Criar novo
-- `PUT /api/parameters/{paraStamp}` - Atualizar
-- `DELETE /api/parameters/{paraStamp}` - Deletar
+- `PUT /api/parameters/{para1Stamp}` - Atualizar
+- `DELETE /api/parameters/{para1Stamp}` - Deletar
 
 ---
 
@@ -62,7 +62,7 @@ services.AddParametersPresentation(
 ```graphql
 query {
   parameters(includeInactive: false) {
-    paraStamp
+    para1Stamp
     descricao
     valor
     tipo
@@ -78,7 +78,7 @@ mutation {
     valor: "123"
     tipo: "N"
   }) {
-    paraStamp
+    para1Stamp
     descricao
   }
 }
@@ -148,9 +148,9 @@ public class ParametersQueries
 
     public async Task<ParameterDto?> GetParameter(
         [Service] IMediator mediator,
-        string paraStamp)
+        string para1Stamp)
     {
-        return await mediator.Send(new GetParameterByStampQuery(paraStamp));
+        return await mediator.Send(new GetParameterByStampQuery(para1Stamp));
     }
 }
 ```
@@ -178,11 +178,11 @@ public class ParametersMutations
 
     public async Task<ParameterDto> UpdateParameter(
         [Service] IMediator mediator,
-        string paraStamp,
+        string para1Stamp,
         UpdateParameterDto input)
     {
         var command = new UpdateParameterCommand(
-            paraStamp,
+            para1Stamp,
             input.Descricao,
             input.Valor,
             input.Tipo,
@@ -196,9 +196,9 @@ public class ParametersMutations
 
     public async Task<bool> DeleteParameter(
         [Service] IMediator mediator,
-        string paraStamp)
+        string para1Stamp)
     {
-        return await mediator.Send(new DeleteParameterCommand(paraStamp));
+        return await mediator.Send(new DeleteParameterCommand(para1Stamp));
     }
 }
 ```

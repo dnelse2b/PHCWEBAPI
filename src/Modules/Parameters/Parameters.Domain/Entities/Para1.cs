@@ -1,28 +1,27 @@
-using Parameters.Domain.Common;
+using Shared.Abstractions.Entities;
 
 namespace Parameters.Domain.Entities;
 
-
 public class Para1 : AuditableEntity
 {
-    public string ParaStamp { get; private set; } = string.Empty;
+    public string Para1Stamp { get; private set; } = string.Empty;
     public string Descricao { get; private set; } = string.Empty;
     public string Valor { get; private set; } = string.Empty;
     public string Tipo { get; private set; } = string.Empty;
-    public int? Dec { get; private set; }
-    public int? Tam { get; private set; }
+    public decimal? Dec { get; private set; }
+    public decimal? Tam { get; private set; }
 
     private Para1() { }
 
-    public Para1(string paraStamp, string descricao, string valor, string tipo, int? dec = null, int? tam = null, string? criadoPor = null)
+    public Para1(string para1Stamp, string descricao, string valor, string tipo, decimal? dec = null, decimal? tam = null, string? criadoPor = null)
     {
-        if (string.IsNullOrWhiteSpace(paraStamp))
-            throw new ArgumentException("ParaStamp cannot be empty", nameof(paraStamp));
+        if (string.IsNullOrWhiteSpace(para1Stamp))
+            throw new ArgumentException("Para1Stamp cannot be empty", nameof(para1Stamp));
 
         if (string.IsNullOrWhiteSpace(descricao))
             throw new ArgumentException("Descricao cannot be empty", nameof(descricao));
 
-        ParaStamp = paraStamp;
+        Para1Stamp = para1Stamp;
         Descricao = descricao;
         Valor = valor ?? string.Empty;
         Tipo = tipo ?? string.Empty;

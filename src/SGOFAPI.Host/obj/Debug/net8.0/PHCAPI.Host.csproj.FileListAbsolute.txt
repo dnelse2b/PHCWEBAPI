@@ -100,3 +100,7 @@ C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\refin
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\PHCAPI.Host.pdb
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\PHCAPI.Host.genruntimeconfig.cache
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net8.0\ref\PHCAPI.Host.dll
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Shared.Domain.dll
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Shared.Domain.pdb
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Shared.Infrastructure.dll
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\bin\Debug\net8.0\Shared.Infrastructure.pdb

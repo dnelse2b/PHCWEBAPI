@@ -7,6 +7,9 @@ using Parameters.Application.Features.DeleteParameter;
 using Parameters.Application.Features.GetAllParameters;
 using Parameters.Application.Features.GetParameterByStamp;
 using Shared.Kernel.Responses;
+using Shared.Kernel.Extensions;
+using Parameters.Application.DTOs.Parameters;
+using System.Diagnostics;
 
 namespace Parameters.Presentation.REST.Controllers;
 
@@ -26,23 +29,26 @@ public sealed class ParametersController : ControllerBase
         [FromQuery] bool includeInactive = false,
         CancellationToken ct = default)
     {
+
         var result = await _mediator.Send(new GetAllParametersQuery(includeInactive), ct);
-        return Ok(ResponseDTO.Success(data: result));
+        var correlationId = HttpContext.GetCorrelationId();
+        return Ok(ResponseDTO.Success(data: result, correlationId: correlationId));
     }
 
-    [HttpGet("{paraStamp}")]
+    [HttpGet("{para1Stamp}")]
     [ProducesResponseType(typeof(ResponseDTO), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ResponseDTO), StatusCodes.Status404NotFound)]
     [ProducesResponseType(typeof(ResponseDTO), StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<ResponseDTO>> GetByStamp(
-        string paraStamp,
+        string para1Stamp,
         CancellationToken ct = default)
     {
-        var result = await _mediator.Send(new GetParameterByStampQuery(paraStamp), ct);
+        var result = await _mediator.Send(new GetParameterByStampQuery(para1Stamp), ct);
+        var correlationId = HttpContext.GetCorrelationId();
 
         return result is null
-            ? NotFound(ResponseDTO.Error(ResponseCodes.Parameter.NotFound))
-            : Ok(ResponseDTO.Success(data: result));
+            ? NotFound(ResponseDTO.Error(ResponseCodes.Parameter.NotFound, correlationId: correlationId))
+            : Ok(ResponseDTO.Success(data: result, correlationId: correlationId));
     }
 
     [HttpPost]
@@ -50,45 +56,48 @@ public sealed class ParametersController : ControllerBase
     [ProducesResponseType(typeof(ResponseDTO), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ResponseDTO), StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<ResponseDTO>> Create(
-        [FromBody] CreateParameterDto dto,
+        [FromBody] CreateParameterInputDTO dto,
         CancellationToken ct = default)
     {
         var command = new CreateParameterCommand(dto, User.Identity?.Name);
         var result = await _mediator.Send(command, ct);
+        var correlationId = HttpContext.GetCorrelationId();
 
         return CreatedAtAction(
             nameof(GetByStamp),
-            new { paraStamp = result.ParaStamp },
-            ResponseDTO.Success(data: result, content: ResponseCodes.Parameter.CreatedSuccessfully));
+            new { para1Stamp = result.Para1Stamp },
+            ResponseDTO.Success(data: result, content: ResponseCodes.Parameter.CreatedSuccessfully, correlationId: correlationId));
     }
 
-    [HttpPut("{paraStamp}")]
+    [HttpPut("{para1Stamp}")]
     [ProducesResponseType(typeof(ResponseDTO), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ResponseDTO), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ResponseDTO), StatusCodes.Status404NotFound)]
     [ProducesResponseType(typeof(ResponseDTO), StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<ResponseDTO>> Update(
-        string paraStamp,
-        [FromBody] UpdateParameterDto dto,
+        string para1Stamp,
+        [FromBody] UpdateParameterInputDTO dto,
         CancellationToken ct = default)
     {
-        var command = new UpdateParameterCommand(paraStamp, dto, User.Identity?.Name);
+        var command = new UpdateParameterCommand(para1Stamp, dto, User.Identity?.Name);
         var result = await _mediator.Send(command, ct);
-        return Ok(ResponseDTO.Success(data: result, content: ResponseCodes.Parameter.UpdatedSuccessfully));
+        var correlationId = HttpContext.GetCorrelationId();
+        return Ok(ResponseDTO.Success(data: result, content: ResponseCodes.Parameter.UpdatedSuccessfully, correlationId: correlationId));
     }
 
-    [HttpDelete("{paraStamp}")]
+    [HttpDelete("{para1Stamp}")]
     [ProducesResponseType(typeof(ResponseDTO), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ResponseDTO), StatusCodes.Status404NotFound)]
     [ProducesResponseType(typeof(ResponseDTO), StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<ResponseDTO>> Delete(
-        string paraStamp,
+        string para1Stamp,
         CancellationToken ct = default)
     {
-        var result = await _mediator.Send(new DeleteParameterCommand(paraStamp), ct);
+        var result = await _mediator.Send(new DeleteParameterCommand(para1Stamp), ct);
+        var correlationId = HttpContext.GetCorrelationId();
 
         return result
-            ? Ok(ResponseDTO.Success(content: ResponseCodes.Parameter.DeletedSuccessfully))
-            : NotFound(ResponseDTO.Error(ResponseCodes.Parameter.NotFound));
+            ? Ok(ResponseDTO.Success(content: ResponseCodes.Parameter.DeletedSuccessfully, correlationId: correlationId))
+            : NotFound(ResponseDTO.Error(ResponseCodes.Parameter.NotFound, correlationId: correlationId));
     }
 }

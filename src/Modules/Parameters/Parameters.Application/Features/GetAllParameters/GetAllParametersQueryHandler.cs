@@ -1,10 +1,12 @@
 using MediatR;
-using Parameters.Domain.Repositories;
+using Parameters.Application.DTOs.Parameters;
 using Parameters.Application.Mappings;
+using Parameters.Domain.Repositories;
+using System.Diagnostics;
 
 namespace Parameters.Application.Features.GetAllParameters;
 
-public class GetAllParametersQueryHandler : IRequestHandler<GetAllParametersQuery, IEnumerable<ParameterDto>>
+public class GetAllParametersQueryHandler : IRequestHandler<GetAllParametersQuery, IEnumerable<ParameterOutputDTO>>
 {
     private readonly IPara1Repository _para1Repository;
 
@@ -13,11 +15,12 @@ public class GetAllParametersQueryHandler : IRequestHandler<GetAllParametersQuer
         _para1Repository = para1Repository;
     }
 
-    public async Task<IEnumerable<ParameterDto>> Handle(GetAllParametersQuery request, CancellationToken cancellationToken)
+    public async Task<IEnumerable<ParameterOutputDTO>> Handle(GetAllParametersQuery request, CancellationToken cancellationToken)
     {
+        Debug.Print("HANDLING GET ALL PARAMETERS QUERY");
         var para1List = await _para1Repository.GetAllAsync(request.IncludeInactive, cancellationToken);
 
-        return para1List.ToDtos<ParameterDto>();
+        return para1List.ToDtos<ParameterOutputDTO>();
     }
 }
 

@@ -15,7 +15,7 @@ public class DeleteParameterCommandHandler : IRequestHandler<DeleteParameterComm
     public async Task<bool> Handle(DeleteParameterCommand request, CancellationToken cancellationToken)
     {
         // Get Para1
-        var para1 = await _para1Repository.GetByStampAsync(request.ParaStamp, cancellationToken);
+        var para1 = await _para1Repository.GetByStampAsync(request.Para1Stamp, cancellationToken);
         if (para1 == null)
             return false;
 

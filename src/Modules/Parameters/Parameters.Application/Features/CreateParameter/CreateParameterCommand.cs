@@ -1,8 +1,9 @@
 using MediatR;
+using Parameters.Application.DTOs.Parameters;
 
 namespace Parameters.Application.Features.CreateParameter;
 
 public record CreateParameterCommand(
-    CreateParameterDto Dto,
+    CreateParameterInputDTO Dto,
     string? CriadoPor
-) : IRequest<ParameterDto>;
+) : IRequest<ParameterOutputDTO>;

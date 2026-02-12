@@ -111,6 +111,9 @@ catch (Exception ex)
 // ✅ Exception Handler Middleware (DEVE vir primeiro!)
 app.UseExceptionHandler();
 
+// ✅ Correlation ID Middleware (para rastreabilidade)
+app.UseMiddleware<CorrelationIdMiddleware>();
+
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
@@ -121,18 +124,8 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = string.Empty; // Swagger na raiz
     });
 
-    // Auto migrate database in development
-    using var scope = app.Services.CreateScope();
-    var dbContext = scope.ServiceProvider.GetRequiredService<ParametersDbContext>();
-    try
-    {
-        dbContext.Database.Migrate();
-        Log.Information("Database migration completed successfully");
-    }
-    catch (Exception ex)
-    {
-        Log.Error(ex, "An error occurred while migrating the database");
-    }
+    // ✅ Database First Approach - Tabelas já existem no banco
+    // Não precisa de migrations automáticas
 }
 
 app.UseSerilogRequestLogging();

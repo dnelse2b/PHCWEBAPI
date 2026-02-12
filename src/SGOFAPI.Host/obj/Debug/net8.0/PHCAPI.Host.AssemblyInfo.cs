@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PHCAPI.Host")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d169f890cdc9e49d2d1e0b6cb6bc149a8f7a8faf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82e4767b710cf4f6bd1d71ea4a60edb76c0ef1dc")]
 [assembly: System.Reflection.AssemblyProductAttribute("PHCAPI.Host")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PHCAPI.Host")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

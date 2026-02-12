@@ -10,9 +10,16 @@ O módulo segue Clean Architecture dividido em 4 camadas:
 Parameters/
 ├── Parameters.Domain/          ← Entidades, Value Objects, Interfaces
 ├── Parameters.Application/     ← Use Cases, DTOs, Commands, Queries
-├── Parameters.Infrastructure/  ← EF Core, Repositories, Persistence
-└── Parameters.API/            ← Controllers, Endpoints, Middleware
+├── Parameters.Infrastructure/  ← Implementações EF Core (Repositories, DbContext, Configurations)
+│                                  └── usa Shared.Infrastructure (AuditableEntityInterceptorEFCore)
+└── Parameters.Presentation/    ← REST Controllers, GraphQL, Endpoints
 ```
+
+**🔧 Desacoplamento de Tecnologia:**
+- Classes de infraestrutura com sufixo `EFCore` (ex: `Para1RepositoryEFCore`, `ParametersDbContextEFCore`)
+- **Auditoria centralizada** em `Shared.Infrastructure` - reutilizada por todos os módulos
+- Facilita adicionar outras implementações (Dapper, MongoDB, etc.) sem conflitos
+- Domain e Application **nunca** dependem de tecnologias específicas
 
 ## 📊 Modelo de Dados
 
@@ -105,44 +112,40 @@ DELETE /api/parameters/{e1stamp}    # Deletar
 
 ## 🔧 Configuração
 
-### 1. Database Connection
+### 1. Database Connection (Database First)
+
+**⚠️ Importante:** Este projeto usa **Database First** - as tabelas **já existem** no banco PHC.
 
 Adicionar no `appsettings.json`:
 
 ```json
 {
   "ConnectionStrings": {
-    "ParametersConnection": "Server=localhost;Database=SGOFAPI_Parameters;User Id=sa;Password=YourPassword;TrustServerCertificate=True;"
+    "DBconnect": "Server=SRV05\\SQLDEV2022;Database=BILENE_DESENV;User Id=websa;password=W3B123;..."
   }
 }
 ```
 
 ### 2. Registrar o Módulo
 
-No `Program.cs` ou `Startup.cs`:
+No `Program.cs`:
 
 ```csharp
-using Parameters.API;
-
-// Add services
-builder.Services.AddParametersModule(builder.Configuration);
-
-// Add controllers
-builder.Services.AddControllers();
+// Add Parameters Module (Database First)
+builder.Services.AddParametersInfrastructure(builder.Configuration);
+builder.Services.AddParametersApplication();
+builder.Services.AddParametersPresentation();
 ```
 
-### 3. Executar Migrations
+### 3. ❌ NÃO precisa de Migrations
 
-```bash
-# Navegar para a pasta Infrastructure
-cd src/Modules/ParaMeters/Parameters.Infrastructure
+**Database First** - as tabelas **já existem** no banco PHC:
+- ✅ Tabela `para1` já existe
+- ✅ EF Core apenas mapeia as colunas
+- ❌ **NÃO** executar `dotnet ef migrations`
+- ❌ **NÃO** executar `database update`
 
-# Criar migration inicial
-dotnet ef migrations add InitialCreate --startup-project ../Parameters.API
-
-# Aplicar ao banco
-dotnet ef database update --startup-project ../Parameters.API
-```
+Ver documentação completa em: [docs/DATABASE-FIRST-APPROACH.md](../../../docs/DATABASE-FIRST-APPROACH.md)
 
 ## 🧪 Testes
 
@@ -180,6 +183,26 @@ tests/Integration/Parameters.API.Tests/
 ✅ **Dependency Injection** - Inversão de dependência  
 ✅ **Domain-Driven Design** - Entidades ricas  
 ✅ **SOLID Principles** - Código limpo e manutenível  
+✅ **Technology Independence** - Fácil trocar EF Core por Dapper, MongoDB, etc.
+
+## 🔄 Estrutura Infrastructure (EF Core)
+
+```
+Infrastructure/
+├── Persistence/
+│   ├── ParametersDbContextEFCore.cs         ← DbContext EF Core
+│   ├── Configurations/
+│   │   └── Para1ConfigurationEFCore.cs      ← Entity Configuration
+│   └── Interceptors/
+│       └── AuditableEntityInterceptorEFCore.cs  ← Auditoria automática
+└── Repositories/
+    └── Para1RepositoryEFCore.cs             ← Implementação EF Core
+```
+
+**Para adicionar outra tecnologia (ex: Dapper):**
+1. Criar `Para1RepositoryDapper.cs : IPara1Repository`
+2. Registrar no DI: `services.AddScoped<IPara1Repository, Para1RepositoryDapper>()`
+3. **Zero mudanças nas camadas Domain e Application** ✨
 
 ## 📦 Dependências
 

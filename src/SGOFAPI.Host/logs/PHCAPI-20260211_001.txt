@@ -420,3 +420,119 @@ ORDER BY [MigrationId];
 2026-02-11 17:03:12.957 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 109.8109ms
 2026-02-11 17:03:13.174 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
 2026-02-11 17:03:13.214 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 40.6551ms
+2026-02-11 17:40:43.901 +02:00 [INF] Building application...
+2026-02-11 17:40:44.074 +02:00 [INF] Application built successfully
+2026-02-11 17:40:46.942 +02:00 [INF] Executed DbCommand (39ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-02-11 17:40:46.999 +02:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-02-11 17:40:47.011 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-02-11 17:40:47.019 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-02-11 17:40:47.051 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-02-11 17:40:47.086 +02:00 [INF] No migrations were applied. The database is already up to date.
+2026-02-11 17:40:47.089 +02:00 [INF] Database migration completed successfully
+2026-02-11 17:40:47.567 +02:00 [INF] Now listening on: https://localhost:5001
+2026-02-11 17:40:47.572 +02:00 [INF] Now listening on: http://localhost:5000
+2026-02-11 17:40:47.664 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-11 17:40:47.667 +02:00 [INF] Hosting environment: Development
+2026-02-11 17:40:47.670 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host
+2026-02-11 17:40:48.516 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/index.html - null null
+2026-02-11 17:40:48.898 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/index.html - 200 null text/html;charset=utf-8 399.0008ms
+2026-02-11 17:40:48.941 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2026-02-11 17:40:48.941 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-11 17:40:48.988 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 14929 application/javascript; charset=utf-8 47.3951ms
+2026-02-11 17:40:49.057 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 116.3653ms
+2026-02-11 17:40:49.272 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2026-02-11 17:40:49.333 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 61.5686ms
+2026-02-11 17:47:02.882 +02:00 [INF] Building application...
+2026-02-11 17:47:03.082 +02:00 [INF] Application built successfully
+2026-02-11 17:47:05.643 +02:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-02-11 17:47:05.694 +02:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-02-11 17:47:05.709 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-02-11 17:47:05.717 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-02-11 17:47:05.743 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-02-11 17:47:05.759 +02:00 [INF] No migrations were applied. The database is already up to date.
+2026-02-11 17:47:05.763 +02:00 [INF] Database migration completed successfully
+2026-02-11 17:47:06.084 +02:00 [INF] Now listening on: https://localhost:5001
+2026-02-11 17:47:06.088 +02:00 [INF] Now listening on: http://localhost:5000
+2026-02-11 17:47:06.193 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-11 17:47:06.204 +02:00 [INF] Hosting environment: Development
+2026-02-11 17:47:06.207 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host
+2026-02-11 17:47:06.602 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/index.html - null null
+2026-02-11 17:47:07.082 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2026-02-11 17:47:07.088 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/index.html - 200 null text/html;charset=utf-8 494.1751ms
+2026-02-11 17:47:07.082 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-11 17:47:07.144 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 14929 application/javascript; charset=utf-8 63.332ms
+2026-02-11 17:47:07.177 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 95.0915ms
+2026-02-11 17:47:07.370 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2026-02-11 17:47:07.410 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 41.1944ms
+2026-02-11 18:04:39.889 +02:00 [INF] Building application...
+2026-02-11 18:04:40.142 +02:00 [INF] Application built successfully
+2026-02-11 18:04:44.845 +02:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-02-11 18:04:44.886 +02:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-02-11 18:04:44.893 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-02-11 18:04:44.898 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-02-11 18:04:44.924 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-02-11 18:04:44.946 +02:00 [INF] No migrations were applied. The database is already up to date.
+2026-02-11 18:04:44.948 +02:00 [INF] Database migration completed successfully
+2026-02-11 18:04:45.646 +02:00 [INF] Now listening on: https://localhost:5001
+2026-02-11 18:04:45.651 +02:00 [INF] Now listening on: http://localhost:5000
+2026-02-11 18:04:45.731 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-11 18:04:45.738 +02:00 [INF] Hosting environment: Development
+2026-02-11 18:04:45.741 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host
+2026-02-11 18:04:46.841 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/index.html - null null
+2026-02-11 18:04:47.241 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2026-02-11 18:04:47.259 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-11 18:04:47.287 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/index.html - 200 null text/html;charset=utf-8 454.538ms
+2026-02-11 18:04:47.306 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 14927 application/javascript; charset=utf-8 55.0418ms
+2026-02-11 18:04:47.376 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 134.7281ms
+2026-02-11 18:04:47.603 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2026-02-11 18:04:47.731 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 128.3149ms
+2026-02-11 18:07:14.575 +02:00 [INF] Building application...
+2026-02-11 18:07:14.748 +02:00 [INF] Application built successfully
+2026-02-11 18:07:16.877 +02:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-02-11 18:07:16.920 +02:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-02-11 18:07:16.934 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-02-11 18:07:16.943 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-02-11 18:07:16.982 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-02-11 18:07:17.010 +02:00 [INF] No migrations were applied. The database is already up to date.
+2026-02-11 18:07:17.014 +02:00 [INF] Database migration completed successfully
+2026-02-11 18:07:17.551 +02:00 [INF] Now listening on: https://localhost:5001
+2026-02-11 18:07:17.553 +02:00 [INF] Now listening on: http://localhost:5000
+2026-02-11 18:07:17.636 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-11 18:07:17.641 +02:00 [INF] Hosting environment: Development
+2026-02-11 18:07:17.645 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host
+2026-02-11 18:07:18.664 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/index.html - null null
+2026-02-11 18:07:19.115 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-11 18:07:19.116 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2026-02-11 18:07:19.123 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/index.html - 200 null text/html;charset=utf-8 489.9643ms
+2026-02-11 18:07:19.164 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 14927 application/javascript; charset=utf-8 49.5976ms
+2026-02-11 18:07:19.268 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 152.1034ms
+2026-02-11 18:07:19.551 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - null null
+2026-02-11 18:07:19.592 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 41.0915ms

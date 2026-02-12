@@ -24,15 +24,14 @@ public sealed record ResponseDTO
     }
 
     /// <summary>
-    /// Cria uma resposta de sucesso
+    /// Cria uma resposta de sucesso com ID de correlação
     /// </summary>
-    public static ResponseDTO Success(object? data = null, object? content = null) 
-        => new(ResponseCodes.Success, data, content);
+    public static ResponseDTO Success(object? data = null, object? content = null, decimal? correlationId = null) 
+        => new(new ResponseCodeDTO(ResponseCodes.Success.Code, ResponseCodes.Success.Description, correlationId), data, content);
 
     /// <summary>
-    /// Cria uma resposta de erro
+    /// Cria uma resposta de erro com ID de correlação
     /// </summary>
-    public static ResponseDTO Error(ResponseCodeDTO errorCode, object? data = null, object? content = null)
-        => new(errorCode, data, content);
+    public static ResponseDTO Error(ResponseCodeDTO errorCode, object? data = null, object? content = null, decimal? correlationId = null)
+        => new(new ResponseCodeDTO(errorCode.Code, errorCode.Description, correlationId), data, content);
 }
-

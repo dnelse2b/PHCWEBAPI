@@ -1,14 +1,13 @@
 using Mapster;
 using Parameters.Domain.Entities;
-using Parameters.Application.Features.CreateParameter;
-using Parameters.Application.Features.UpdateParameter;
 using Shared.Kernel.Extensions;
+using Parameters.Application.DTOs.Parameters;
 
 namespace Parameters.Application.Mappings;
 
 public static class Para1Mappings
 {
-    public static Para1 ToEntity(this CreateParameterDto dto, string? createdBy)
+    public static Para1 ToEntity(this CreateParameterInputDTO dto, string? createdBy)
     {
         return new Para1(
             25.GenerateStamp(),
@@ -21,7 +20,7 @@ public static class Para1Mappings
         );
     }
 
-    public static void UpdateEntity(this Para1 entity, UpdateParameterDto dto, string? updatedBy)
+    public static void UpdateEntity(this Para1 entity, UpdateParameterInputDTO dto, string? updatedBy)
     {
         entity.Update(
             dto.Descricao,

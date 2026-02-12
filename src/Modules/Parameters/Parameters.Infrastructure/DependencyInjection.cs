@@ -3,8 +3,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Parameters.Domain.Repositories;
 using Parameters.Infrastructure.Persistence;
-using Parameters.Infrastructure.Persistence.Interceptors;
 using Parameters.Infrastructure.Repositories;
+using Shared.Infrastructure.Persistence.Interceptors;
 
 namespace Parameters.Infrastructure;
 
@@ -14,22 +14,20 @@ public static class DependencyInjection
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        // Interceptors
-        services.AddSingleton<AuditableEntityInterceptor>();
+        // EF Core Interceptors (do Shared)
+        services.AddSingleton<AuditableEntityInterceptorEFCore>();
 
-        // DbContext
-        services.AddDbContext<ParametersDbContext>((sp, options) =>
+        // EF Core DbContext (Database First - sem migrations)
+        services.AddDbContext<ParametersDbContextEFCore>((sp, options) =>
         {
-            var auditInterceptor = sp.GetRequiredService<AuditableEntityInterceptor>();
+            var auditInterceptor = sp.GetRequiredService<AuditableEntityInterceptorEFCore>();
 
-            options.UseSqlServer(
-                configuration.GetConnectionString("ParametersConnection"),
-                b => b.MigrationsAssembly(typeof(ParametersDbContext).Assembly.FullName))
-            .AddInterceptors(auditInterceptor);
+            options.UseSqlServer(configuration.GetConnectionString("DBconnect"))
+                   .AddInterceptors(auditInterceptor);
         });
 
-        // Repositories
-        services.AddScoped<IPara1Repository, Para1Repository>();
+        // Repositories - EF Core implementation
+        services.AddScoped<IPara1Repository, Para1RepositoryEFCore>();
 
         return services;
     }

@@ -10,3 +10,7 @@ C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Infrastructure\Shared
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Infrastructure\Shared.Infrastructure\obj\Debug\net8.0\refint\Shared.Infrastructure.dll
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Infrastructure\Shared.Infrastructure\obj\Debug\net8.0\Shared.Infrastructure.pdb
 C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Infrastructure\Shared.Infrastructure\obj\Debug\net8.0\ref\Shared.Infrastructure.dll
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Infrastructure\Shared.Infrastructure\bin\Debug\net8.0\Shared.Domain.dll
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Infrastructure\Shared.Infrastructure\bin\Debug\net8.0\Shared.Domain.pdb
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Infrastructure\Shared.Infrastructure\obj\Debug\net8.0\Shared.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Infrastructure\Shared.Infrastructure\obj\Debug\net8.0\Shared.I.E63B7492.Up2Date

@@ -56,17 +56,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateParameterDto"
+                "$ref": "#/components/schemas/CreateParameterInputDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateParameterDto"
+                "$ref": "#/components/schemas/CreateParameterInputDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateParameterDto"
+                "$ref": "#/components/schemas/CreateParameterInputDTO"
               }
             }
           }
@@ -105,14 +105,14 @@
         }
       }
     },
-    "/api/parameters/{paraStamp}": {
+    "/api/parameters/{para1Stamp}": {
       "get": {
         "tags": [
           "Parameters"
         ],
         "parameters": [
           {
-            "name": "paraStamp",
+            "name": "para1Stamp",
             "in": "path",
             "required": true,
             "schema": {
@@ -159,7 +159,7 @@
         ],
         "parameters": [
           {
-            "name": "paraStamp",
+            "name": "para1Stamp",
             "in": "path",
             "required": true,
             "schema": {
@@ -171,17 +171,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateParameterDto"
+                "$ref": "#/components/schemas/UpdateParameterInputDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateParameterDto"
+                "$ref": "#/components/schemas/UpdateParameterInputDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateParameterDto"
+                "$ref": "#/components/schemas/UpdateParameterInputDTO"
               }
             }
           }
@@ -235,7 +235,7 @@
         ],
         "parameters": [
           {
-            "name": "paraStamp",
+            "name": "para1Stamp",
             "in": "path",
             "required": true,
             "schema": {
@@ -280,7 +280,7 @@
   },
   "components": {
     "schemas": {
-      "CreateParameterDto": {
+      "CreateParameterInputDTO": {
         "type": "object",
         "properties": {
           "descricao": {
@@ -342,7 +342,7 @@
         },
         "additionalProperties": false
       },
-      "UpdateParameterDto": {
+      "UpdateParameterInputDTO": {
         "type": "object",
         "properties": {
           "descricao": {

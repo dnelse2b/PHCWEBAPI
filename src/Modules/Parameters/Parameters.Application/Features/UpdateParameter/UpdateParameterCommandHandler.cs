@@ -1,10 +1,12 @@
 using MediatR;
 using Parameters.Domain.Repositories;
 using Parameters.Application.Mappings;
+using Parameters.Application.DTOs;
+using Parameters.Application.DTOs.Parameters;
 
 namespace Parameters.Application.Features.UpdateParameter;
 
-public class UpdateParameterCommandHandler : IRequestHandler<UpdateParameterCommand, ParameterDto>
+public class UpdateParameterCommandHandler : IRequestHandler<UpdateParameterCommand, ParameterOutputDTO>
 {
     private readonly IPara1Repository _para1Repository;
 
@@ -13,15 +15,15 @@ public class UpdateParameterCommandHandler : IRequestHandler<UpdateParameterComm
         _para1Repository = para1Repository;
     }
 
-    public async Task<ParameterDto> Handle(UpdateParameterCommand request, CancellationToken cancellationToken)
+    public async Task<ParameterOutputDTO> Handle(UpdateParameterCommand request, CancellationToken cancellationToken)
     {
-        var para1 = await _para1Repository.GetByStampAsync(request.ParaStamp, cancellationToken)
-            ?? throw new KeyNotFoundException($"Parameter with stamp {request.ParaStamp} not found");
+        var para1 = await _para1Repository.GetByStampAsync(request.Para1Stamp, cancellationToken)
+            ?? throw new KeyNotFoundException($"Parameter with stamp {request.Para1Stamp} not found");
 
         para1.UpdateEntity(request.Dto, request.AtualizadoPor);
 
         await _para1Repository.UpdateAsync(para1, cancellationToken);
 
-        return para1.ToDto<ParameterDto>();
+        return para1.ToDto<ParameterOutputDTO>();
     }
 }

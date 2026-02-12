@@ -40,7 +40,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "Parameters.Application.Features.CreateParameter.CreateParameterDto",
+        "Type": "Parameters.Application.DTOs.Parameters.CreateParameterInputDTO",
         "IsRequired": true
       }
     ],
@@ -71,13 +71,13 @@
   {
     "ContainingType": "Parameters.Presentation.REST.Controllers.ParametersController",
     "Method": "GetByStamp",
-    "RelativePath": "api/parameters/{paraStamp}",
+    "RelativePath": "api/parameters/{para1Stamp}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "paraStamp",
+        "Name": "para1Stamp",
         "Type": "System.String",
         "IsRequired": true
       }
@@ -109,19 +109,19 @@
   {
     "ContainingType": "Parameters.Presentation.REST.Controllers.ParametersController",
     "Method": "Update",
-    "RelativePath": "api/parameters/{paraStamp}",
+    "RelativePath": "api/parameters/{para1Stamp}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "paraStamp",
+        "Name": "para1Stamp",
         "Type": "System.String",
         "IsRequired": true
       },
       {
         "Name": "dto",
-        "Type": "Parameters.Application.Features.UpdateParameter.UpdateParameterDto",
+        "Type": "Parameters.Application.DTOs.Parameters.UpdateParameterInputDTO",
         "IsRequired": true
       }
     ],
@@ -159,13 +159,13 @@
   {
     "ContainingType": "Parameters.Presentation.REST.Controllers.ParametersController",
     "Method": "Delete",
-    "RelativePath": "api/parameters/{paraStamp}",
+    "RelativePath": "api/parameters/{para1Stamp}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "paraStamp",
+        "Name": "para1Stamp",
         "Type": "System.String",
         "IsRequired": true
       }

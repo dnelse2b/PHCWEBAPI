@@ -1,0 +1,12 @@
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Abstractions\bin\Debug\net8.0\Shared.Abstractions.deps.json
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Abstractions\bin\Debug\net8.0\Shared.Abstractions.dll
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Abstractions\bin\Debug\net8.0\Shared.Abstractions.pdb
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Abstractions\obj\Debug\net8.0\Shared.Abstractions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Abstractions\obj\Debug\net8.0\Shared.Abstractions.AssemblyInfoInputs.cache
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Abstractions\obj\Debug\net8.0\Shared.Abstractions.AssemblyInfo.cs
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Abstractions\obj\Debug\net8.0\Shared.Abstractions.csproj.CoreCompileInputs.cache
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Abstractions\obj\Debug\net8.0\Shared.Abstractions.sourcelink.json
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Abstractions\obj\Debug\net8.0\Shared.Abstractions.dll
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Abstractions\obj\Debug\net8.0\refint\Shared.Abstractions.dll
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Abstractions\obj\Debug\net8.0\Shared.Abstractions.pdb
+C:\Users\dbarreto\source\repos\PHCWEBAPI\src\Shared\Shared.Abstractions\obj\Debug\net8.0\ref\Shared.Abstractions.dll

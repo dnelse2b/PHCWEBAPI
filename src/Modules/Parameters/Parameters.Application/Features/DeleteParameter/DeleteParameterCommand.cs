@@ -3,4 +3,4 @@ using MediatR;
 namespace Parameters.Application.Features.DeleteParameter;
 
 
-public record DeleteParameterCommand(string ParaStamp) : IRequest<bool>;
+public record DeleteParameterCommand(string Para1Stamp) : IRequest<bool>;
