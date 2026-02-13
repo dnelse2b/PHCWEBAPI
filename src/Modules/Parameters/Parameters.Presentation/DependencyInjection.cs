@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using FluentValidation;
+using Parameters.Application;
 using Parameters.Presentation.REST;
 using Parameters.Presentation.GraphQL;
 using Parameters.Application.Behaviors;
@@ -16,7 +17,9 @@ public static class DependencyInjection
         bool enableRest = true,
         bool enableGraphQL = false)
     {
-        // Application Layer (MediatR + FluentValidation)
+        // Application Layer (Mappers + MediatR + FluentValidation)
+        services.AddParametersApplication();
+
         services.AddMediatR(cfg =>
         {
             cfg.RegisterServicesFromAssembly(typeof(Application.Features.CreateParameter.CreateParameterCommand).Assembly);

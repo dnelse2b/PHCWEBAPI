@@ -12,12 +12,12 @@ FROM [__EFMigrationsHistory]
 ORDER BY [MigrationId];
 2026-02-10 14:56:11.685 +02:00 [INF] No migrations were applied. The database is already up to date.
 2026-02-10 14:56:11.690 +02:00 [INF] Database migration completed successfully
-2026-02-10 14:56:11.830 +02:00 [INF] Starting SGOFAPI - Modular Monolith...
+2026-02-10 14:56:11.830 +02:00 [INF] Starting PHCAPI - Modular Monolith...
 2026-02-10 14:56:12.085 +02:00 [INF] Now listening on: https://localhost:7282
 2026-02-10 14:56:12.092 +02:00 [INF] Now listening on: http://localhost:5269
 2026-02-10 14:56:12.195 +02:00 [INF] Application started. Press Ctrl+C to shut down.
 2026-02-10 14:56:12.197 +02:00 [INF] Hosting environment: Development
-2026-02-10 14:56:12.200 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host
+2026-02-10 14:56:12.200 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\PHCAPI.Host
 2026-02-10 14:57:44.650 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
 SELECT 1
 2026-02-10 14:57:44.727 +02:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
@@ -32,12 +32,12 @@ FROM [__EFMigrationsHistory]
 ORDER BY [MigrationId];
 2026-02-10 14:57:44.800 +02:00 [INF] No migrations were applied. The database is already up to date.
 2026-02-10 14:57:44.809 +02:00 [INF] Database migration completed successfully
-2026-02-10 14:57:44.866 +02:00 [INF] Starting SGOFAPI - Modular Monolith...
+2026-02-10 14:57:44.866 +02:00 [INF] Starting PHCAPI - Modular Monolith...
 2026-02-10 14:57:44.950 +02:00 [INF] Now listening on: https://localhost:5001
 2026-02-10 14:57:44.961 +02:00 [INF] Now listening on: http://localhost:5000
 2026-02-10 14:57:45.016 +02:00 [INF] Application started. Press Ctrl+C to shut down.
 2026-02-10 14:57:45.020 +02:00 [INF] Hosting environment: Development
-2026-02-10 14:57:45.022 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host
+2026-02-10 14:57:45.022 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\PHCAPI.Host
 2026-02-10 14:57:46.309 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - null null
 2026-02-10 14:57:46.655 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - 301 null null 350.6065ms
 2026-02-10 14:57:46.666 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/index.html - null null

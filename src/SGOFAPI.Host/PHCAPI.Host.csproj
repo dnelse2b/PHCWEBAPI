@@ -10,11 +10,19 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+    <PackageReference Include="Hangfire.Core" Version="1.8.9" />
+    <PackageReference Include="Hangfire.SqlServer" Version="1.8.9" />
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.8.9" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Modules\Parameters\Parameters.Presentation\Parameters.Presentation.csproj" />
+    <ProjectReference Include="..\Modules\Audit\Audit.Presentation\Audit.Presentation.csproj" />
     <ProjectReference Include="..\Shared\Shared.Kernel\Shared.Kernel\Shared.Kernel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

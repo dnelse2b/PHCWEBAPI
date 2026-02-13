@@ -1,6 +1,6 @@
 using Shared.Kernel.Extensions;
 
-namespace SGOFAPI.Host.Middleware;
+namespace PHCAPI.Host.Middleware;
 
 /// <summary>
 /// Middleware para adicionar Correlation ID a cada request

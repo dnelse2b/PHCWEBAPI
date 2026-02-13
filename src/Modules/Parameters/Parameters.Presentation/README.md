@@ -223,7 +223,7 @@ public static IServiceCollection AddParametersGraphQL(this IServiceCollection se
 
 ### 5. Ativar no Host
 ```csharp
-// SGOFAPI.Host/Program.cs
+// PHCAPI.Host/Program.cs
 services.AddParametersPresentation(
     enableRest: true,
     enableGraphQL: true

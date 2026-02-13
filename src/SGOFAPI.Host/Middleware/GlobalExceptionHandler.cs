@@ -4,10 +4,11 @@ using System.Diagnostics;
 using Shared.Kernel.Responses;
 using Shared.Kernel.Extensions;
 
-namespace SGOFAPI.Host.Middleware;
+namespace PHCAPI.Host.Middleware;
 
 /// <summary>
 /// Middleware centralizado para tratamento de exceções usando ResponseDTO
+/// Trabalha em conjunto com ResponseLoggingMiddleware para auditoria completa
 /// </summary>
 public sealed class GlobalExceptionHandler : IExceptionHandler
 {
@@ -23,13 +24,24 @@ public sealed class GlobalExceptionHandler : IExceptionHandler
         Exception exception,
         CancellationToken cancellationToken)
     {
+        var correlationId = httpContext.GetCorrelationId();
+        var operation = $"{httpContext.Request.Method} {httpContext.Request.Path}";
+
         _logger.LogError(
             exception,
-            "Exception occurred: {Message}",
-            exception.Message);
+            "Exception occurred: {Message} | Operation: {Operation} | CorrelationId: {CorrelationId}",
+            exception.Message,
+            operation,
+            correlationId);
 
+        // ✅ Criar response apropriada
         var (response, statusCode) = CreateResponse(exception, httpContext);
 
+        // ⚠️ NOTA: Logging via Audit será feito pelo ResponseLoggingMiddleware
+        // que intercepta a response APÓS este handler
+        // Não precisamos logar aqui para evitar duplicação
+
+        // ✅ Retornar resposta ao cliente
         httpContext.Response.StatusCode = statusCode;
         httpContext.Response.ContentType = "application/json";
 

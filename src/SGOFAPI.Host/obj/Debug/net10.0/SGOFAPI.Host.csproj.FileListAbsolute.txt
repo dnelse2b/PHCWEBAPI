@@ -1,9 +1,0 @@
-C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net10.0\SGOFAPI.Host.csproj.AssemblyReference.cache
-C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net10.0\rpswa.dswa.cache.json
-C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net10.0\SGOFAPI.Host.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net10.0\SGOFAPI.Host.AssemblyInfoInputs.cache
-C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net10.0\SGOFAPI.Host.AssemblyInfo.cs
-C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net10.0\SGOFAPI.Host.csproj.CoreCompileInputs.cache
-C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net10.0\SGOFAPI.Host.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net10.0\SGOFAPI.Host.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host\obj\Debug\net10.0\SGOFAPI.Host.sourcelink.json

@@ -6,6 +6,12 @@
     <Project Path="src/SGOFAPI.Host/PHCAPI.Host.csproj" />
   </Folder>
   <Folder Name="/src/Modules/" />
+  <Folder Name="/src/Modules/Audit/">
+    <Project Path="src/Modules/Audit/Audit.Application/Audit.Application.csproj" />
+    <Project Path="src/Modules/Audit/Audit.Domain/Audit.Domain.csproj" />
+    <Project Path="src/Modules/Audit/Audit.Infrastructure/Audit.Infrastructure.csproj" />
+    <Project Path="src/Modules/Audit/Audit.Presentation/Audit.Presentation.csproj" />
+  </Folder>
   <Folder Name="/src/Modules/Parameters/">
     <Project Path="src/Modules/Parameters/Parameters.Application/Parameters.Application.csproj" />
     <Project Path="src/Modules/Parameters/Parameters.Domain/Parameters.Domain.csproj" />

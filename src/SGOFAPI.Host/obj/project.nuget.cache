@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YAc9CbOQQus=",
+  "dgSpecHash": "TSd5pjbq++8=",
   "success": true,
   "projectFilePath": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\SGOFAPI.Host\\PHCAPI.Host.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,10 @@
     "C:\\Users\\dbarreto\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\dbarreto\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
     "C:\\Users\\dbarreto\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.0\\fluentvalidation.dependencyinjectionextensions.11.9.0.nupkg.sha512",
+    "C:\\Users\\dbarreto\\.nuget\\packages\\hangfire.aspnetcore\\1.8.9\\hangfire.aspnetcore.1.8.9.nupkg.sha512",
+    "C:\\Users\\dbarreto\\.nuget\\packages\\hangfire.core\\1.8.9\\hangfire.core.1.8.9.nupkg.sha512",
+    "C:\\Users\\dbarreto\\.nuget\\packages\\hangfire.netcore\\1.8.9\\hangfire.netcore.1.8.9.nupkg.sha512",
+    "C:\\Users\\dbarreto\\.nuget\\packages\\hangfire.sqlserver\\1.8.9\\hangfire.sqlserver.1.8.9.nupkg.sha512",
     "C:\\Users\\dbarreto\\.nuget\\packages\\mapster\\7.4.0\\mapster.7.4.0.nupkg.sha512",
     "C:\\Users\\dbarreto\\.nuget\\packages\\mapster.core\\1.2.1\\mapster.core.1.2.1.nupkg.sha512",
     "C:\\Users\\dbarreto\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
@@ -67,6 +71,7 @@
     "C:\\Users\\dbarreto\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\dbarreto\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\dbarreto\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\dbarreto\\.nuget\\packages\\newtonsoft.json\\11.0.1\\newtonsoft.json.11.0.1.nupkg.sha512",
     "C:\\Users\\dbarreto\\.nuget\\packages\\serilog\\3.1.1\\serilog.3.1.1.nupkg.sha512",
     "C:\\Users\\dbarreto\\.nuget\\packages\\serilog.aspnetcore\\8.0.0\\serilog.aspnetcore.8.0.0.nupkg.sha512",
     "C:\\Users\\dbarreto\\.nuget\\packages\\serilog.extensions.hosting\\8.0.0\\serilog.extensions.hosting.8.0.0.nupkg.sha512",

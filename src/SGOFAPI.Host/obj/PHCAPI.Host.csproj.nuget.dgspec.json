@@ -4,6 +4,359 @@
     "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\SGOFAPI.Host\\PHCAPI.Host.csproj": {}
   },
   "projects": {
+    "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Application\\Audit.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Application\\Audit.Application.csproj",
+        "projectName": "Audit.Application",
+        "projectPath": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Application\\Audit.Application.csproj",
+        "packagesPath": "C:\\Users\\dbarreto\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 25.1\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dbarreto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 25.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 25.1\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Domain\\Audit.Domain.csproj": {
+                "projectPath": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Domain\\Audit.Domain.csproj"
+              },
+              "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Shared\\Shared.Kernel\\Shared.Kernel\\Shared.Kernel.csproj": {
+                "projectPath": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Shared\\Shared.Kernel\\Shared.Kernel\\Shared.Kernel.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.200"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Hangfire.Core": {
+              "target": "Package",
+              "version": "[1.8.9, )"
+            },
+            "Mapster": {
+              "target": "Package",
+              "version": "[7.4.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.2.0, )"
+            },
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200-preview.0.26103.119/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Domain\\Audit.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Domain\\Audit.Domain.csproj",
+        "projectName": "Audit.Domain",
+        "projectPath": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Domain\\Audit.Domain.csproj",
+        "packagesPath": "C:\\Users\\dbarreto\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 25.1\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dbarreto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 25.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 25.1\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Shared\\Shared.Kernel\\Shared.Kernel\\Shared.Kernel.csproj": {
+                "projectPath": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Shared\\Shared.Kernel\\Shared.Kernel\\Shared.Kernel.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.200"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200-preview.0.26103.119/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Infrastructure\\Audit.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Infrastructure\\Audit.Infrastructure.csproj",
+        "projectName": "Audit.Infrastructure",
+        "projectPath": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Infrastructure\\Audit.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\dbarreto\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 25.1\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dbarreto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 25.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 25.1\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Application\\Audit.Application.csproj": {
+                "projectPath": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Application\\Audit.Application.csproj"
+              },
+              "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Domain\\Audit.Domain.csproj": {
+                "projectPath": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Domain\\Audit.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.200"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Hangfire.Core": {
+              "target": "Package",
+              "version": "[1.8.9, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200-preview.0.26103.119/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Presentation\\Audit.Presentation.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Presentation\\Audit.Presentation.csproj",
+        "projectName": "Audit.Presentation",
+        "projectPath": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Presentation\\Audit.Presentation.csproj",
+        "packagesPath": "C:\\Users\\dbarreto\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Presentation\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 25.1\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dbarreto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 25.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 25.1\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Application\\Audit.Application.csproj": {
+                "projectPath": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Application\\Audit.Application.csproj"
+              },
+              "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Infrastructure\\Audit.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Infrastructure\\Audit.Infrastructure.csproj"
+              },
+              "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Shared\\Shared.Kernel\\Shared.Kernel\\Shared.Kernel.csproj": {
+                "projectPath": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Shared\\Shared.Kernel\\Shared.Kernel\\Shared.Kernel.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.200"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.2.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200-preview.0.26103.119/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Parameters\\Parameters.Application\\Parameters.Application.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -424,6 +777,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Presentation\\Audit.Presentation.csproj": {
+                "projectPath": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Audit\\Audit.Presentation\\Audit.Presentation.csproj"
+              },
               "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Parameters\\Parameters.Presentation\\Parameters.Presentation.csproj": {
                 "projectPath": "C:\\Users\\dbarreto\\source\\repos\\PHCWEBAPI\\src\\Modules\\Parameters\\Parameters.Presentation\\Parameters.Presentation.csproj"
               },
@@ -449,6 +805,18 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Hangfire.AspNetCore": {
+              "target": "Package",
+              "version": "[1.8.9, )"
+            },
+            "Hangfire.Core": {
+              "target": "Package",
+              "version": "[1.8.9, )"
+            },
+            "Hangfire.SqlServer": {
+              "target": "Package",
+              "version": "[1.8.9, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.0, )"

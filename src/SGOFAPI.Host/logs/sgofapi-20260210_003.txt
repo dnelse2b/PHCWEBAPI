@@ -12,12 +12,12 @@ FROM [__EFMigrationsHistory]
 ORDER BY [MigrationId];
 2026-02-10 14:57:44.800 +02:00 [INF] No migrations were applied. The database is already up to date.
 2026-02-10 14:57:44.809 +02:00 [INF] Database migration completed successfully
-2026-02-10 14:57:44.866 +02:00 [INF] Starting SGOFAPI - Modular Monolith...
+2026-02-10 14:57:44.866 +02:00 [INF] Starting PHCAPI - Modular Monolith...
 2026-02-10 14:57:44.950 +02:00 [INF] Now listening on: https://localhost:5001
 2026-02-10 14:57:44.961 +02:00 [INF] Now listening on: http://localhost:5000
 2026-02-10 14:57:45.016 +02:00 [INF] Application started. Press Ctrl+C to shut down.
 2026-02-10 14:57:45.020 +02:00 [INF] Hosting environment: Development
-2026-02-10 14:57:45.022 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host
+2026-02-10 14:57:45.022 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\PHCAPI.Host
 2026-02-10 14:57:46.309 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - null null
 2026-02-10 14:57:46.655 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - 301 null null 350.6065ms
 2026-02-10 14:57:46.666 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/index.html - null null
@@ -54,12 +54,12 @@ FROM [__EFMigrationsHistory]
 ORDER BY [MigrationId];
 2026-02-10 16:03:14.635 +02:00 [INF] No migrations were applied. The database is already up to date.
 2026-02-10 16:03:14.641 +02:00 [INF] Database migration completed successfully
-2026-02-10 16:03:15.043 +02:00 [INF] Starting SGOFAPI - Modular Monolith...
+2026-02-10 16:03:15.043 +02:00 [INF] Starting PHCAPI - Modular Monolith...
 2026-02-10 16:03:15.795 +02:00 [INF] Now listening on: https://localhost:5001
 2026-02-10 16:03:15.803 +02:00 [INF] Now listening on: http://localhost:5000
 2026-02-10 16:03:16.499 +02:00 [INF] Application started. Press Ctrl+C to shut down.
 2026-02-10 16:03:16.505 +02:00 [INF] Hosting environment: Development
-2026-02-10 16:03:16.520 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host
+2026-02-10 16:03:16.520 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\PHCAPI.Host
 2026-02-10 16:03:16.748 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/index.html - null null
 2026-02-10 16:03:17.773 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
 2026-02-10 16:03:17.801 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
@@ -82,12 +82,12 @@ FROM [__EFMigrationsHistory]
 ORDER BY [MigrationId];
 2026-02-10 16:04:07.622 +02:00 [INF] No migrations were applied. The database is already up to date.
 2026-02-10 16:04:07.630 +02:00 [INF] Database migration completed successfully
-2026-02-10 16:04:07.779 +02:00 [INF] Starting SGOFAPI - Modular Monolith...
+2026-02-10 16:04:07.779 +02:00 [INF] Starting PHCAPI - Modular Monolith...
 2026-02-10 16:04:08.143 +02:00 [INF] Now listening on: https://localhost:5001
 2026-02-10 16:04:08.150 +02:00 [INF] Now listening on: http://localhost:5000
 2026-02-10 16:04:08.284 +02:00 [INF] Application started. Press Ctrl+C to shut down.
 2026-02-10 16:04:08.291 +02:00 [INF] Hosting environment: Development
-2026-02-10 16:04:08.295 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host
+2026-02-10 16:04:08.295 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\PHCAPI.Host
 2026-02-10 16:04:09.089 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/index.html - null null
 2026-02-10 16:04:09.576 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/index.html - 200 null text/html;charset=utf-8 503.4066ms
 2026-02-10 16:04:09.585 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
@@ -110,12 +110,12 @@ FROM [__EFMigrationsHistory]
 ORDER BY [MigrationId];
 2026-02-10 16:13:35.110 +02:00 [INF] No migrations were applied. The database is already up to date.
 2026-02-10 16:13:35.116 +02:00 [INF] Database migration completed successfully
-2026-02-10 16:13:35.323 +02:00 [INF] Starting SGOFAPI - Modular Monolith...
+2026-02-10 16:13:35.323 +02:00 [INF] Starting PHCAPI - Modular Monolith...
 2026-02-10 16:13:35.792 +02:00 [INF] Now listening on: https://localhost:5001
 2026-02-10 16:13:35.798 +02:00 [INF] Now listening on: http://localhost:5000
 2026-02-10 16:13:35.967 +02:00 [INF] Application started. Press Ctrl+C to shut down.
 2026-02-10 16:13:35.971 +02:00 [INF] Hosting environment: Development
-2026-02-10 16:13:35.976 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host
+2026-02-10 16:13:35.976 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\PHCAPI.Host
 2026-02-10 16:13:36.460 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/index.html - null null
 2026-02-10 16:13:37.018 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
 2026-02-10 16:13:37.022 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
@@ -138,12 +138,12 @@ FROM [__EFMigrationsHistory]
 ORDER BY [MigrationId];
 2026-02-10 16:15:00.522 +02:00 [INF] No migrations were applied. The database is already up to date.
 2026-02-10 16:15:00.528 +02:00 [INF] Database migration completed successfully
-2026-02-10 16:15:00.693 +02:00 [INF] Starting SGOFAPI - Modular Monolith...
+2026-02-10 16:15:00.693 +02:00 [INF] Starting PHCAPI - Modular Monolith...
 2026-02-10 16:15:01.106 +02:00 [INF] Now listening on: https://localhost:5001
 2026-02-10 16:15:01.110 +02:00 [INF] Now listening on: http://localhost:5000
 2026-02-10 16:15:01.255 +02:00 [INF] Application started. Press Ctrl+C to shut down.
 2026-02-10 16:15:01.260 +02:00 [INF] Hosting environment: Development
-2026-02-10 16:15:01.265 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host
+2026-02-10 16:15:01.265 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\PHCAPI.Host
 2026-02-10 16:15:02.126 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/index.html - null null
 2026-02-10 16:15:02.654 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
 2026-02-10 16:15:02.654 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
@@ -166,12 +166,12 @@ FROM [__EFMigrationsHistory]
 ORDER BY [MigrationId];
 2026-02-10 16:49:47.004 +02:00 [INF] No migrations were applied. The database is already up to date.
 2026-02-10 16:49:47.012 +02:00 [INF] Database migration completed successfully
-2026-02-10 16:49:47.241 +02:00 [INF] Starting SGOFAPI - Modular Monolith...
+2026-02-10 16:49:47.241 +02:00 [INF] Starting PHCAPI - Modular Monolith...
 2026-02-10 16:49:47.844 +02:00 [INF] Now listening on: https://localhost:5001
 2026-02-10 16:49:47.848 +02:00 [INF] Now listening on: http://localhost:5000
 2026-02-10 16:49:48.160 +02:00 [INF] Application started. Press Ctrl+C to shut down.
 2026-02-10 16:49:48.167 +02:00 [INF] Hosting environment: Development
-2026-02-10 16:49:48.172 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host
+2026-02-10 16:49:48.172 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\PHCAPI.Host
 2026-02-10 16:49:48.574 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/index.html - null null
 2026-02-10 16:49:49.258 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/index.html - 200 null text/html;charset=utf-8 713.6466ms
 2026-02-10 16:49:49.285 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
@@ -194,12 +194,12 @@ FROM [__EFMigrationsHistory]
 ORDER BY [MigrationId];
 2026-02-10 16:59:13.022 +02:00 [INF] No migrations were applied. The database is already up to date.
 2026-02-10 16:59:13.026 +02:00 [INF] Database migration completed successfully
-2026-02-10 16:59:13.129 +02:00 [INF] Starting SGOFAPI - Modular Monolith...
+2026-02-10 16:59:13.129 +02:00 [INF] Starting PHCAPI - Modular Monolith...
 2026-02-10 16:59:13.438 +02:00 [INF] Now listening on: https://localhost:5001
 2026-02-10 16:59:13.441 +02:00 [INF] Now listening on: http://localhost:5000
 2026-02-10 16:59:13.532 +02:00 [INF] Application started. Press Ctrl+C to shut down.
 2026-02-10 16:59:13.534 +02:00 [INF] Hosting environment: Development
-2026-02-10 16:59:13.536 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host
+2026-02-10 16:59:13.536 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\PHCAPI.Host
 2026-02-10 16:59:13.852 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/index.html - null null
 2026-02-10 16:59:14.203 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
 2026-02-10 16:59:14.203 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
@@ -222,12 +222,12 @@ FROM [__EFMigrationsHistory]
 ORDER BY [MigrationId];
 2026-02-10 17:41:05.667 +02:00 [INF] No migrations were applied. The database is already up to date.
 2026-02-10 17:41:05.670 +02:00 [INF] Database migration completed successfully
-2026-02-10 17:41:05.764 +02:00 [INF] Starting SGOFAPI - Modular Monolith...
+2026-02-10 17:41:05.764 +02:00 [INF] Starting PHCAPI - Modular Monolith...
 2026-02-10 17:41:06.006 +02:00 [INF] Now listening on: https://localhost:5001
 2026-02-10 17:41:06.008 +02:00 [INF] Now listening on: http://localhost:5000
 2026-02-10 17:41:06.294 +02:00 [INF] Application started. Press Ctrl+C to shut down.
 2026-02-10 17:41:06.297 +02:00 [INF] Hosting environment: Development
-2026-02-10 17:41:06.300 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\SGOFAPI.Host
+2026-02-10 17:41:06.300 +02:00 [INF] Content root path: C:\Users\dbarreto\source\repos\PHCWEBAPI\src\PHCAPI.Host
 2026-02-10 17:41:07.177 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/index.html - null null
 2026-02-10 17:41:07.601 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
 2026-02-10 17:41:07.601 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
