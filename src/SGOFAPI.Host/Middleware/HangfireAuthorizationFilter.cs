@@ -2,11 +2,7 @@ using Hangfire.Dashboard;
 
 namespace PHCAPI.Host.Middleware;
 
-/// <summary>
-/// Filtro de autorização para Hangfire Dashboard
-/// Em desenvolvimento: permite acesso sem autenticação
-/// Em produção: deve implementar autenticação adequada
-/// </summary>
+
 public class HangfireAuthorizationFilter : IDashboardAuthorizationFilter
 {
     public bool Authorize(DashboardContext context)

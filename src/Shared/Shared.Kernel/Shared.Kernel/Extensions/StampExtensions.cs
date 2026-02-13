@@ -43,7 +43,7 @@ public static class StampExtensions
 
     public static string GenerateStamp(this int randomSize)
     {
-        return DateTime.UtcNow.ToString("yyyyMMddHHmmss") + GenerateStamp(randomSize, false);
+        return  GenerateStamp(randomSize, false);
     }
 
     public static string GenerateRequestId(string prefix = "PHCAPI")

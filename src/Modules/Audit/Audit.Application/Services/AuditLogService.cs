@@ -24,34 +24,38 @@ public class AuditLogService : IAuditLogService
         string operation,
         string? ipAddress,
         string? userAgent,
-        int statusCode)
+        int statusCode,
+        string? requestBody = null,
+        string? responseJson = null)
     {
         try
         {
+            // ✅ Verificação defensiva
+            if (response?.Response == null)
+            {
+             
+                return;
+            }
+
             var code = response.Response.Code;
             var responseDesc = response.Response.Description;
-            var content = response.Content?.ToString();
-            var responseText = response.Data?.ToString();
-
+            
             var jobId = _backgroundJobClient.Enqueue<SaveAuditLogJob>(job =>
                 job.ExecuteAsync(
                     code,
                     requestId,
                     responseDesc,
                     operation,
-                    content,
-                    responseText,
+                    requestBody,
+                    responseJson,
                     ipAddress
                 ));
 
-           
+         
         }
         catch (Exception ex)
         {
-            // ✅ Log do erro mas NÃO propaga (não deve quebrar o request)
-            _logger.LogError(ex,
-                "[AUDIT] ❌ Failed to enqueue job: RequestId={RequestId}, Operation={Operation}",
-                requestId, operation);
+       
         }
     }
 }

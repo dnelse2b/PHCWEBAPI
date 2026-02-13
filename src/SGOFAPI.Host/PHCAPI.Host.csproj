@@ -13,11 +13,15 @@
     <PackageReference Include="Hangfire.Core" Version="1.8.9" />
     <PackageReference Include="Hangfire.SqlServer" Version="1.8.9" />
     <PackageReference Include="Hangfire.AspNetCore" Version="1.8.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Modules\Parameters\Parameters.Presentation\Parameters.Presentation.csproj" />
     <ProjectReference Include="..\Modules\Audit\Audit.Presentation\Audit.Presentation.csproj" />
+    <ProjectReference Include="..\Modules\Auth\Auth.Presentation\Auth.Presentation.csproj" />
+    <ProjectReference Include="..\Modules\Auth\Auth.Infrastructure\Auth.Infrastructure.csproj" />
     <ProjectReference Include="..\Shared\Shared.Kernel\Shared.Kernel\Shared.Kernel.csproj" />
   </ItemGroup>
 

@@ -18,6 +18,12 @@
     <Project Path="src/Modules/Parameters/Parameters.Infrastructure/Parameters.Infrastructure.csproj" />
     <Project Path="src/Modules/Parameters/Parameters.Presentation/Parameters.Presentation.csproj" />
   </Folder>
+  <Folder Name="/src/Modules/Auth/">
+    <Project Path="src/Modules/Auth/Auth.Application/Auth.Application.csproj" />
+    <Project Path="src/Modules/Auth/Auth.Domain/Auth.Domain.csproj" />
+    <Project Path="src/Modules/Auth/Auth.Infrastructure/Auth.Infrastructure.csproj" />
+    <Project Path="src/Modules/Auth/Auth.Presentation/Auth.Presentation.csproj" />
+  </Folder>
   <Folder Name="/src/Shared/">
     <Project Path="src/Shared/Shared.Abstractions/Shared.Domain.csproj" />
     <Project Path="src/Shared/Shared.Application/Shared.Application/Shared.Application.csproj" />

@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Audit.Application.Services;
 using Shared.Kernel.Responses;
+using System.Text;
+using System.Text.Json;
 
 namespace PHCAPI.Host.Filters;
 
@@ -26,52 +28,165 @@ public sealed class AuditLoggingFilter : IAsyncActionFilter
         ActionExecutingContext context,
         ActionExecutionDelegate next)
     {
+        string? requestBody = null;
+        var httpContext = context.HttpContext;
+
         try
         {
+            // ✅ Capturar body do request (se existir)
+            requestBody = await CaptureRequestBodyAsync(httpContext.Request);
 
             // ✅ Executar a action
             var executedContext = await next();
 
+            // ✅ Tentar extrair ResponseDTO de vários tipos de resultado
+            ResponseDTO? response = null;
+            object? responseValue = null;
+            int statusCode = httpContext.Response.StatusCode;
 
-            // ✅ Apenas logar se a resposta for um ResponseDTO
-            if (executedContext.Result is not ObjectResult objectResult)
+            // Caso 1: ObjectResult (retorno normal do controller)
+            if (executedContext.Result is ObjectResult objectResult)
             {
+                responseValue = objectResult.Value;
+                statusCode = objectResult.StatusCode ?? statusCode;
+                
+                if (responseValue is ResponseDTO dto)
+                {
+                    response = dto;
+                }
+            }
+            // Caso 2: JsonResult (pode acontecer em alguns casos)
+            else if (executedContext.Result is JsonResult jsonResult)
+            {
+                responseValue = jsonResult.Value;
+                statusCode = jsonResult.StatusCode ?? statusCode;
+                
+                if (responseValue is ResponseDTO dto)
+                {
+                    response = dto;
+                }
+            }
+            // Caso 3: ContentResult ou outros
+            else if (executedContext.Result != null)
+            {
+                _logger.LogDebug(
+                    "[FILTER] Unsupported result type: {ResultType} for {Path}",
+                    executedContext.Result.GetType().Name,
+                    httpContext.Request.Path);
                 return;
             }
 
-            if (objectResult.Value is not ResponseDTO response)
+            // Se não encontrou ResponseDTO, não logar
+            if (response == null || responseValue == null)
             {
+                _logger.LogDebug(
+                    "[FILTER] No ResponseDTO found for {Path}. ResultType: {ResultType}",
+                    httpContext.Request.Path,
+                    executedContext.Result?.GetType().Name ?? "null");
                 return;
             }
 
-
-            var httpContext = context.HttpContext;
+            // ✅ Preparar dados para audit
             var request = httpContext.Request;
-
             var requestId = httpContext.TraceIdentifier;
             var operation = $"{request.Method} {request.Path}";
             var ipAddress = httpContext.Connection.RemoteIpAddress?.ToString();
             var userAgent = request.Headers.UserAgent.ToString();
-            var statusCode = objectResult.StatusCode ?? httpContext.Response.StatusCode;
 
-            // ✅ Chamar serviço (fire-and-forget seguro com scope próprio)
+            // ✅ Serializar o que foi retornado (sucesso OU erro)
+            var responseJson = TrySerializeToJson(responseValue);
+
             _auditLogService.LogResponseAsync(
                 response,
                 requestId,
                 operation,
                 ipAddress,
                 userAgent,
-                statusCode
+                statusCode,
+                requestBody,
+                responseJson
             );
 
+            _logger.LogDebug(
+                "[FILTER] Audit log triggered for {RequestId} - Status: {StatusCode}",
+                requestId, statusCode);
         }
         catch (Exception ex)
         {
             // ✅ NUNCA deixar o filtro quebrar o pipeline
             _logger.LogError(ex, 
                 "[FILTER] ❌ CRITICAL: Filter failed for {Path}. Error: {ErrorMessage}", 
-                context.HttpContext.Request.Path, 
+                httpContext.Request.Path, 
                 ex.Message);
+        }
+    }
+
+    private async Task<string?> CaptureRequestBodyAsync(HttpRequest request)
+    {
+        try
+        {
+            // Apenas capturar se for POST/PUT/PATCH e tiver content
+            if (!HttpMethods.IsPost(request.Method) && 
+                !HttpMethods.IsPut(request.Method) && 
+                !HttpMethods.IsPatch(request.Method))
+            {
+                return null;
+            }
+
+            if (request.ContentLength == null || request.ContentLength == 0)
+            {
+                return null;
+            }
+            request.EnableBuffering(); // Permite ler múltiplas vezes
+            request.Body.Position = 0;
+
+            using var reader = new StreamReader(
+                request.Body,
+                Encoding.UTF8,
+                detectEncodingFromByteOrderMarks: false,
+                bufferSize: 1024,
+                leaveOpen: true);
+
+            var body = await reader.ReadToEndAsync();
+            request.Body.Position = 0; // Reset para o controller ler
+
+            return string.IsNullOrWhiteSpace(body) ? null : body;
+        }
+        catch (Exception ex)
+        {
+            return "N/A";
+        }
+    }
+
+    /// <summary>
+    /// Serializa qualquer objeto para JSON (captura exatamente o que o controller retorna)
+    /// </summary>
+    private string? TrySerializeToJson(object? obj)
+    {
+        if (obj == null)
+            return null;
+
+        try
+        {
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = false, // Compacto
+                DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
+                MaxDepth = 32,
+                ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles
+            };
+
+            // ✅ Serializa diretamente - System.Text.Json materializa IEnumerables automaticamente
+            var json = JsonSerializer.Serialize(obj, obj.GetType(), options);
+            
+           
+
+            return json;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "[FILTER] Failed to serialize response");
+            return $"[Error serializing: {ex.Message}]";
         }
     }
 }

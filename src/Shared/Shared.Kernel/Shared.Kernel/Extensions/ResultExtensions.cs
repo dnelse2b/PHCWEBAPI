@@ -5,14 +5,10 @@ using Shared.Kernel.Results;
 
 namespace Shared.Kernel.Extensions;
 
-/// <summary>
-/// Extension methods para converter Result em ActionResult
-/// </summary>
+
 public static class ResultExtensions
 {
-    /// <summary>
-    /// Converte Result<T> em ActionResult com ResponseDTO
-    /// </summary>
+  
     public static ActionResult<ResponseDTO> ToActionResult<T>(
         this Result<T> result,
         object? content = null)
@@ -31,9 +27,7 @@ public static class ResultExtensions
         };
     }
 
-    /// <summary>
-    /// Converte Result<T> em CreatedResult com ResponseDTO
-    /// </summary>
+
     public static ActionResult<ResponseDTO> ToCreatedResult<T>(
         this Result<T> result,
         string actionName,
@@ -58,9 +52,7 @@ public static class ResultExtensions
         };
     }
 
-    /// <summary>
-    /// Converte Result em NoContentResult ou ErrorResult
-    /// </summary>
+
     public static ActionResult<ResponseDTO> ToActionResult(
         this Result result,
         object? content = null)
@@ -79,17 +71,13 @@ public static class ResultExtensions
         };
     }
 
-    /// <summary>
-    /// Mapeia código de erro para HTTP status code
-    /// </summary>
+
     private static int MapErrorCodeToHttpStatus(string errorCode)
     {
         return errorCode switch
         {
             // Success
             "0000" => StatusCodes.Status200OK,
-
-            // Client Errors (4xx)
             "0001" => StatusCodes.Status405MethodNotAllowed,  // Incorrect HTTP method
             "0002" => StatusCodes.Status400BadRequest,        // Invalid JSON
             "0003" => StatusCodes.Status401Unauthorized,      // Incorrect API Key
@@ -104,14 +92,10 @@ public static class ResultExtensions
             "0014" => StatusCodes.Status404NotFound,          // Not Found
             "0015" => StatusCodes.Status400BadRequest,        // Validation error
             "0016" => StatusCodes.Status409Conflict,          // Already exists
-
-            // Parameters Module (1xxx)
             "1001" => StatusCodes.Status404NotFound,          // Parameter not found
             "1002" => StatusCodes.Status409Conflict,          // Code already exists
             "1003" => StatusCodes.Status400BadRequest,        // Invalid code
             "1004" => StatusCodes.Status400BadRequest,        // Cannot update inactive
-
-            // Server Errors (5xx)
             "0007" => StatusCodes.Status500InternalServerError,  // Internal error
             "0011" => StatusCodes.Status500InternalServerError,  // User creation failed
             "0017" => StatusCodes.Status500InternalServerError,  // Database error

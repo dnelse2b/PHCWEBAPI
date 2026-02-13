@@ -1,20 +1,24 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using MediatR;
 using Audit.Application.Features.GetAllAuditLogs;
 using Audit.Application.Features.GetAuditLogByStamp;
 using Audit.Application.Features.GetAuditLogsByCorrelationId;
 using Shared.Kernel.Responses;
 using Shared.Kernel.Extensions;
+using Shared.Kernel.Authorization;
 
 namespace Audit.Presentation.REST.Controllers;
 
 /// <summary>
 /// Controller para consulta de logs de auditoria
+/// ⚠️ ACESSO RESTRITO: Apenas usuários internos (Administrator, InternalUser, AuditViewer)
 /// </summary>
 [ApiController]
 [Route("api/audit")]
 [Produces("application/json")]
+[Authorize(Policy = AppPolicies.InternalOnly)]
 public sealed class AuditController : ControllerBase
 {
     private readonly IMediator _mediator;

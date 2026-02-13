@@ -4,7 +4,7 @@ namespace Audit.Domain.Entities;
 
 public class AuditLog
 {
-    public string ULogsstamp { get; private set; } = string.Empty;
+    public string ULogsstamp { get; private set; } = 25.GenerateStamp();
     public string? RequestId { get; private set; }
     public DateTime? Data { get; private set; }
     public string? Code { get; private set; }
