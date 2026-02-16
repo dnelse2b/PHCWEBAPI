@@ -11,12 +11,11 @@ using Auth.Infrastructure;
 using Auth.Infrastructure.Data;
 using Auth.Infrastructure.Extensions;
 using Auth.Presentation;
+using Admin.UI;
 using Shared.Kernel.Authorization;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using Microsoft.AspNetCore.Identity;
 using Auth.Infrastructure.Persistence;
+using System.Threading.RateLimiting;
+using PHCAPI.Host.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -74,35 +73,13 @@ try
         options.ShutdownTimeout = TimeSpan.FromMinutes(1);       
     });
 
-    // ✅ Authentication & Authorization Module
+    // ✅ Authentication & Authorization Module (includes JWT + Cookie auth)
     builder.Services.AddAuthPresentation(builder.Configuration);
     
-    // Configure JWT Authentication
-    builder.Services.AddAuthentication(options =>
-    {
-        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-        options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-    })
-    .AddJwtBearer(options =>
-    {
-        options.SaveToken = false;
-        options.RequireHttpsMetadata = false;
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
-            ValidAudience = builder.Configuration["JWT:ValidAudience"],
-            IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"] ?? 
-                    throw new InvalidOperationException("JWT:Secret not configured")))
-        };
-    });
+    // ✅ Admin UI Module (Painel completo: Login, Gestão de Users & Roles)
+    builder.Services.AddAdminUI(builder.Configuration);
 
-    // Configure Authorization Policies
+    // ✅ Configure Authorization Policies
     builder.Services.AddAuthorization(options =>
     {
         // Policy for internal users only (e.g., Audit module)
@@ -121,6 +98,10 @@ try
         options.AddPolicy(AppPolicies.Authenticated, policy =>
             policy.RequireAuthenticatedUser());
     });
+
+    // 🛡️ SECURITY: Rate Limiting (VULN-003 Fixed)
+    // Configuration loaded from appsettings.json > RateLimiting section
+    builder.Services.AddConfigurableRateLimiting(builder.Configuration);
 
    
 
@@ -227,14 +208,32 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// CORS Configuration
+// ✅ CORS Configuration - SECURE (configurado via appsettings.json)
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    // Carregar origens permitidas da configuração
+    var allowedOrigins = builder.Configuration
+        .GetSection("AllowedOrigins")
+        .Get<string[]>() ?? Array.Empty<string>();
+
+    if (allowedOrigins.Length == 0)
     {
-        policy.AllowAnyOrigin()
-              .AllowAnyMethod()
-              .AllowAnyHeader();
+        Log.Warning("⚠️ No AllowedOrigins configured in appsettings.json. CORS will block all origins.");
+    }
+    else
+    {
+        Log.Information("✅ CORS configured with {Count} allowed origins: {Origins}", 
+            allowedOrigins.Length, 
+            string.Join(", ", allowedOrigins));
+    }
+
+    options.AddPolicy("SecureCors", policy =>
+    {
+        policy.WithOrigins(allowedOrigins)
+              .AllowCredentials()  // ✅ Permite cookies/auth
+              .WithMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+              .WithHeaders("Content-Type", "Authorization", "X-Requested-With", "Accept", "Origin")
+              .SetIsOriginAllowedToAllowWildcardSubdomains(); // ✅ Permite subdomínios se necessário
     });
 });
 
@@ -310,13 +309,39 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors("AllowAll");
+app.UseRouting();
+
+app.UseCors("SecureCors");
+
+// 🛡️ SECURITY: Rate Limiting (must be after UseRouting, before UseAuthentication)
+app.UseRateLimiter();
 
 app.UseAuthentication();
 
 app.UseAuthorization();
 
+// ✅ Admin UI Middleware
+app.UseAdminUI();
+
+// Map endpoints
 app.MapControllers();
+app.MapAdminUI(); // ✅ Admin UI Razor Pages (Login, Users, Roles)
+
+// ✅ Rota /Admin - redireciona para users
+app.MapGet("/Admin", (HttpContext context) =>
+{
+    return Results.Redirect("/Admin/Users");
+}).ExcludeFromDescription();
+
+// ✅ Rota raiz - redireciona para users se autenticado, senão para login
+app.MapGet("/", (HttpContext context) =>
+{
+    if (context.User.Identity?.IsAuthenticated == true)
+    {
+        return Results.Redirect("/Admin/Users");
+    }
+    return Results.Redirect("/Admin/Account/Login"); // ✅ Admin.UI custom login page
+}).ExcludeFromDescription();
 
 try
 {

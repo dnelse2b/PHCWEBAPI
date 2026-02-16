@@ -18,8 +18,35 @@ Auth/
 │       ├── GetAllRoles/
 │       └── GetUserRoles/
 ├── Auth.Infrastructure/      # Implementations (Identity, JWT, Repositories)
-└── Auth.Presentation/        # Controllers (uses IMediator only)
+├── Auth.Presentation/        # Controllers (uses IMediator only)
+└── Auth.UI/                  # 🆕 Web UI for user management (Razor Pages)
 ```
+
+## 🆕 Auth.UI Module
+
+The Auth module now includes a **Web UI** for visual user management!
+
+**Features:**
+- ✅ Login/Logout pages
+- ✅ User profile management
+- ✅ Modern responsive design
+- ✅ Bootstrap 5 based
+- ✅ Cookie-based authentication
+
+**Quick Access:**
+```
+http://localhost:7298/Identity/Account/Login
+```
+
+**Default Credentials:**
+```
+Username: admin
+Password: Admin@123
+```
+
+📖 **Full Documentation:** See `Auth.UI/README.md` and `Auth.UI/QUICK-START.md`
+
+---
 
 ### CQRS Pattern with MediatR
 

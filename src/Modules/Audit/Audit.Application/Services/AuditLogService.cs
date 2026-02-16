@@ -30,17 +30,16 @@ public class AuditLogService : IAuditLogService
     {
         try
         {
-            // ✅ Verificação defensiva
             if (response?.Response == null)
             {
-             
+                _logger.LogWarning("Response or Response.Response is null for operation: {Operation}", operation);
                 return;
             }
 
             var code = response.Response.Code;
             var responseDesc = response.Response.Description;
             
-            var jobId = _backgroundJobClient.Enqueue<SaveAuditLogJob>(job =>
+            _backgroundJobClient.Enqueue<SaveAuditLogJob>(job =>
                 job.ExecuteAsync(
                     code,
                     requestId,
@@ -50,12 +49,10 @@ public class AuditLogService : IAuditLogService
                     responseJson,
                     ipAddress
                 ));
-
-         
         }
         catch (Exception ex)
         {
-       
+            _logger.LogError(ex, "Failed to enqueue audit log for operation: {Operation}", operation);
         }
     }
 }

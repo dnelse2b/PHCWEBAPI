@@ -20,7 +20,6 @@ public class SaveAuditLogJob
         _logger = logger;
     }
 
-  
     public async Task ExecuteAsync(
         string code,
         string? requestId,
@@ -32,7 +31,6 @@ public class SaveAuditLogJob
     {
         try
         {
-   
             var auditLog = new Domain.Entities.AuditLog(
                 code: code,
                 requestId: requestId,
@@ -42,36 +40,13 @@ public class SaveAuditLogJob
                 responseText: responseJson,
                 ip: ipAddress
             );
-
+            
             await _repository.AddAsync(auditLog);
-
-          
         }
         catch (Exception ex)
         {
-            var errodto = new {
-                code,
-                requestId,
-                responseDesc,
-                operation,
-                requestBody,
-                responseJson,
-                ipAddress,
-                exception = ex.Message}
-            ;
-            _logger.LogError(ex, "Error saving audit log {@ErrorDetails}", errodto);
-            Debug.Print($"ERROR ON SAVE LOG {new
-            {
-                code,
-                requestId,
-                responseDesc,
-                operation,
-                requestBody,
-                responseJson,
-                ipAddress,
-                exception = ex.Message
-            }}");
-            // ✅ Re-throw para o Hangfire tentar novamente
+            _logger.LogError(ex, "Error saving audit log for Operation: {Operation}, RequestId: {RequestId}", 
+                operation, requestId);
             throw;
         }
     }

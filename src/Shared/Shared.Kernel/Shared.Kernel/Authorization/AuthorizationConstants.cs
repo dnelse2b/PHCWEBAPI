@@ -10,7 +10,9 @@ public static class AppRoles
     public const string InternalUser = "InternalUser";
     public const string ExternalStakeholder = "ExternalStakeholder";
     public const string AuditViewer = "AuditViewer";
-    
+    public const string Rail2Port = "Rail2Port";
+
+
     public static readonly string[] AllRoles = 
     {
         Administrator,

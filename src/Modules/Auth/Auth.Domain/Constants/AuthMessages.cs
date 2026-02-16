@@ -8,8 +8,9 @@ public static class AuthMessages
     public const string RoleCreated = "Role created successfully.";
     public const string UserAddedToRole = "User added to role successfully.";
     
-    // Error messages
-    public const string BadCredentials = "Invalid username or password.";
+    // 🛡️ SECURITY: Generic error messages to prevent user enumeration
+    // Same message for: user not found, wrong password, account locked, etc.
+    public const string BadCredentials = "Invalid credentials.";  // Generic - no info leakage
     public const string UserAlreadyExists = "User already exists.";
     public const string RoleAlreadyExists = "Role already exists.";
     public const string UserNotFound = "User not found.";

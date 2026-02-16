@@ -49,19 +49,48 @@ public class IdentityAuthenticationService : IAuthenticationService
                 };
             }
 
-            _logger.LogInformation("User found: {Username}, checking password...", username);
+            _logger.LogInformation("User found: {Username}, checking password and lockout status...", username);
+            
+            // 🛡️ SECURITY: Ensure lockout is enabled for this user (fix for legacy users)
+            if (!await _userManager.GetLockoutEnabledAsync(user))
+            {
+                _logger.LogWarning("Lockout was disabled for user {Username}, enabling it now", username);
+                await _userManager.SetLockoutEnabledAsync(user, true);
+            }
+            
+            // 🛡️ SECURITY: Check if user is locked out (VULN-003 Lockout)
+            if (await _userManager.IsLockedOutAsync(user))
+            {
+                _logger.LogWarning("User {Username} is locked out until {LockoutEnd}", username, user.LockoutEnd);
+                
+                // ⚠️ SECURITY: Return generic message to prevent user enumeration
+                // Attackers should NOT know if account exists or is locked
+                // Detailed info only in logs for internal audit
+                return new AuthenticationResult
+                {
+                    Success = false,
+                    Message = AuthMessages.BadCredentials  // Generic message - no info leakage
+                };
+            }
             
             var passwordValid = await _userManager.CheckPasswordAsync(user, password);
             
             if (!passwordValid)
             {
-                _logger.LogWarning("Invalid password for user: {Username}", username);
+                // 🛡️ SECURITY: Increment failed login count for lockout
+                await _userManager.AccessFailedAsync(user);
+                var failedCount = await _userManager.GetAccessFailedCountAsync(user);
+                _logger.LogWarning("Invalid password for user: {Username}. Failed attempts: {FailedCount}", username, failedCount);
+                
                 return new AuthenticationResult
                 {
                     Success = false,
                     Message = AuthMessages.BadCredentials
                 };
             }
+            
+            // 🛡️ SECURITY: Reset failed login count on successful login
+            await _userManager.ResetAccessFailedCountAsync(user);
 
             _logger.LogInformation("Password validated for user: {Username}, retrieving roles...", username);
             

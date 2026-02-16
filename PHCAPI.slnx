@@ -4,6 +4,7 @@
   </Folder>
   <Folder Name="/src/">
     <Project Path="src/SGOFAPI.Host/PHCAPI.Host.csproj" />
+    <Project Path="src/Admin.UI/Admin.UI.csproj" />
   </Folder>
   <Folder Name="/src/Modules/" />
   <Folder Name="/src/Modules/Audit/">
@@ -23,6 +24,7 @@
     <Project Path="src/Modules/Auth/Auth.Domain/Auth.Domain.csproj" />
     <Project Path="src/Modules/Auth/Auth.Infrastructure/Auth.Infrastructure.csproj" />
     <Project Path="src/Modules/Auth/Auth.Presentation/Auth.Presentation.csproj" />
+    <Project Path="src/Modules/Auth/Auth.UI/Auth.UI.csproj" />
   </Folder>
   <Folder Name="/src/Shared/">
     <Project Path="src/Shared/Shared.Abstractions/Shared.Domain.csproj" />
