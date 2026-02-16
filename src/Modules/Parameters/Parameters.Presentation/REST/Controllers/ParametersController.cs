@@ -28,11 +28,7 @@ public sealed class ParametersController : ControllerBase
 
     public ParametersController(IMediator mediator) => _mediator = mediator;
 
-    /// <summary>
-    /// Get all parameters with optional inactive filter
-    /// 🟢 Rate limited to 50 queries per minute
-    /// 🔒 OPÇÃO 1 - OR lógico: Requer Rail2Port OU Administrator (qualquer uma)
-    /// </summary>
+
     [HttpGet]
     [Authorize(Roles = $"{AppRoles.Rail2Port},{AppRoles.Administrator}")]  // ✅ Usuário precisa ter Rail2Port OU Administrator
     [EnableRateLimiting("parameters-query")]
@@ -47,11 +43,7 @@ public sealed class ParametersController : ControllerBase
         return Ok(ResponseDTO.Success(data: result, correlationId: correlationId));
     }
 
-    /// <summary>
-    /// Get parameter by stamp
-    /// 🟢 Rate limited to 50 queries per minute
-    /// 🔒 OPÇÃO 2 - AND lógico: Requer Rail2Port E Administrator (ambas obrigatórias)
-    /// </summary>
+
     [HttpGet("{para1Stamp}")]
     [Authorize(Roles = $"{AppRoles.Rail2Port},{AppRoles.Administrator}")]  // ✅ Precisa ter Rail2Port E Administrator
     [EnableRateLimiting("parameters-query")]
