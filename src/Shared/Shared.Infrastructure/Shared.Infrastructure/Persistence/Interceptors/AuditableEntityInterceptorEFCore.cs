@@ -34,38 +34,52 @@ public class AuditableEntityInterceptorEFCore : SaveChangesInterceptor
         if (context == null) return;
 
         var now = DateTime.UtcNow;
-        var nowDate = now.Date;
-        var nowTime = now.ToString("HH:mm:ss");
+        var timeString = now.ToString("HH:mm:ss");
 
         foreach (var entry in context.ChangeTracker.Entries<AuditableEntity>())
         {
             if (entry.State == EntityState.Added)
             {
-                // Criação - só preenche se ainda não foi preenchido manualmente pela entidade
+                // ✅ Criação - preenche se ainda não foi preenchido pela entidade
                 if (entry.Entity.OUsrData == default)
                 {
                     entry.Entity.GetType()
                         .GetProperty(nameof(AuditableEntity.OUsrData))!
-                        .SetValue(entry.Entity, nowDate);
+                        .SetValue(entry.Entity, now);
                 }
 
                 if (string.IsNullOrEmpty(entry.Entity.OUsrHora))
                 {
                     entry.Entity.GetType()
                         .GetProperty(nameof(AuditableEntity.OUsrHora))!
-                        .SetValue(entry.Entity, nowTime);
+                        .SetValue(entry.Entity, timeString);
+                }
+
+                // ✅ Garantir que UsrData e UsrHora também sejam preenchidos na criação
+                if (entry.Entity.UsrData == default)
+                {
+                    entry.Entity.GetType()
+                        .GetProperty(nameof(AuditableEntity.UsrData))!
+                        .SetValue(entry.Entity, now);
+                }
+
+                if (string.IsNullOrEmpty(entry.Entity.UsrHora))
+                {
+                    entry.Entity.GetType()
+                        .GetProperty(nameof(AuditableEntity.UsrHora))!
+                        .SetValue(entry.Entity, timeString);
                 }
             }
             else if (entry.State == EntityState.Modified)
             {
-                // Atualização - sempre sobrescreve
+                // ✅ Atualização - sempre sobrescreve UsrData/UsrHora/UsrInis
                 entry.Entity.GetType()
                     .GetProperty(nameof(AuditableEntity.UsrData))!
-                    .SetValue(entry.Entity, nowDate);
+                    .SetValue(entry.Entity, now);
 
                 entry.Entity.GetType()
                     .GetProperty(nameof(AuditableEntity.UsrHora))!
-                    .SetValue(entry.Entity, nowTime);
+                    .SetValue(entry.Entity, timeString);
             }
         }
     }

@@ -11,6 +11,7 @@ using Auth.Infrastructure;
 using Auth.Infrastructure.Data;
 using Auth.Infrastructure.Extensions;
 using Auth.Presentation;
+using Providers.Presentation;
 using Admin.UI;
 using Shared.Kernel.Authorization;
 using Auth.Infrastructure.Persistence;
@@ -31,6 +32,9 @@ builder.Host.UseSerilog();
 try
 {
     builder.Services.AddProblemDetails();
+    
+    // ✅ Register Global Exception Handler
+    builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
     // ✅ Hangfire (Background Jobs para Audit)
     builder.Services.AddHangfire(config =>
@@ -111,6 +115,12 @@ try
         enableGraphQL: false
     );
 
+    builder.Services.AddProvidersPresentation(
+        builder.Configuration,
+        enableRest: true,
+        enableGraphQL: false
+    );
+
     builder.Services.AddAuditPresentation(
         builder.Configuration,
         enableRest: true
@@ -121,6 +131,7 @@ try
     {
         // ✅ Audit logging agora é feito via ResponseLoggingMiddleware
     }).AddApplicationPart(typeof(Parameters.Presentation.REST.Controllers.ParametersController).Assembly)
+        .AddApplicationPart(typeof(Providers.Presentation.REST.Controllers.ProvidersController).Assembly)
         .AddApplicationPart(typeof(Audit.Presentation.REST.Controllers.AuditController).Assembly)
         .AddApplicationPart(typeof(Auth.Presentation.Controllers.AuthenticateController).Assembly);
 

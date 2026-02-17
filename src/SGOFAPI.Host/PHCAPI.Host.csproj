@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Modules\Parameters\Parameters.Presentation\Parameters.Presentation.csproj" />
+    <ProjectReference Include="..\Modules\Providers\Providers.Presentation\Providers.Presentation.csproj" />
     <ProjectReference Include="..\Modules\Audit\Audit.Presentation\Audit.Presentation.csproj" />
     <ProjectReference Include="..\Modules\Auth\Auth.Presentation\Auth.Presentation.csproj" />
     <ProjectReference Include="..\Modules\Auth\Auth.Infrastructure\Auth.Infrastructure.csproj" />

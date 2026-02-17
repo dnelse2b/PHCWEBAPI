@@ -1,0 +1,15 @@
+{
+  "workspace": {
+    "id": ""
+  },
+  "entities": {
+    "environments": [],
+    "flows": [],
+    "globals": [],
+    "mocks": [],
+    "specs": [
+      "..\\src\\SGOFAPI.Host\\obj\\Debug\\net10.0\\EndpointInfo\\PHCAPI.Host.json"
+    ],
+    "collections": []
+  }
+}

@@ -26,7 +26,9 @@ public class AuditLogService : IAuditLogService
         string? userAgent,
         int statusCode,
         string? requestBody = null,
-        string? responseJson = null)
+        string? responseJson = null,
+        string? userId = null,
+        string? username = null)
     {
         try
         {
@@ -47,7 +49,9 @@ public class AuditLogService : IAuditLogService
                     operation,
                     requestBody,
                     responseJson,
-                    ipAddress
+                    ipAddress,
+                    userId,
+                    username
                 ));
         }
         catch (Exception ex)

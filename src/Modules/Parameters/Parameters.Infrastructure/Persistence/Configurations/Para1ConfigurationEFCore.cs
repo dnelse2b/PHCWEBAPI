@@ -56,11 +56,13 @@ public class Para1ConfigurationEFCore : IEntityTypeConfiguration<Para1>
             .HasMaxLength(100);
 
         builder.Property(p => p.UsrData)
-            .HasColumnName("usrdata");
+            .HasColumnName("usrdata")
+            .IsRequired(); // ✅ Obrigatório - sempre preenchido na criação
 
         builder.Property(p => p.UsrHora)
             .HasColumnName("usrhora")
-            .HasMaxLength(8);
+            .HasMaxLength(8)
+            .IsRequired(); // ✅ Obrigatório - sempre preenchido na criação
 
         builder.Property(p => p.UsrInis)
             .HasColumnName("usrinis")

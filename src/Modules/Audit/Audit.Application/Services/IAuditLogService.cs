@@ -19,5 +19,7 @@ public interface IAuditLogService
         string? userAgent,
         int statusCode,
         string? requestBody = null,
-        string? responseJson = null);
+        string? responseJson = null,
+        string? userId = null,
+        string? username = null);
 }

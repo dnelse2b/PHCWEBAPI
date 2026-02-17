@@ -47,7 +47,18 @@ public static class ResponseCodes
         public static readonly ResponseCodeDTO DeletedSuccessfully = new("1007", "Parameter deleted successfully");
     }
 
-    // 🛒 Customers Module (futuro)
+    // � Providers Module
+    public static class Provider
+    {
+        public static readonly ResponseCodeDTO NotFound = new("1101", "Provider not found");
+        public static readonly ResponseCodeDTO ConfigNotFound = new("1102", "Provider configuration not found");
+        public static readonly ResponseCodeDTO AlreadyExists = new("1103", "Provider already exists for this environment");
+        public static readonly ResponseCodeDTO CreatedSuccessfully = new("1104", "Provider created successfully");
+        public static readonly ResponseCodeDTO UpdatedSuccessfully = new("1105", "Provider updated successfully");
+        public static readonly ResponseCodeDTO DeletedSuccessfully = new("1106", "Provider deleted successfully");
+    }
+
+    // �🛒 Customers Module (futuro)
     public static class Customer
     {
         public static readonly ResponseCodeDTO NotFound = new("2001", "Customer not found");

@@ -13,6 +13,10 @@ public class AuditLog
     public string? ResponseDesc { get; private set; }
     public string? ResponseText { get; private set; }
     public string? Operation { get; private set; }
+    
+    // ✅ Identificação do usuário que fez o request
+    public string? UserId { get; private set; }
+    public string? Username { get; private set; }
 
     private AuditLog() { }
 
@@ -23,7 +27,9 @@ public class AuditLog
         string? operation,
         string? content = null,
         string? responseText = null,
-        string? ip = null)
+        string? ip = null,
+        string? userId = null,
+        string? username = null)
     {
         ULogsstamp = 25.GenerateStamp();
         RequestId = requestId;
@@ -34,6 +40,8 @@ public class AuditLog
         ResponseDesc = responseDesc;
         ResponseText = responseText;
         Operation = operation;
+        UserId = userId;
+        Username = username;
     }
 
   

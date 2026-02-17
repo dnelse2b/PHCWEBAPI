@@ -55,6 +55,17 @@ public class AuditLogConfigurationEFCore : IEntityTypeConfiguration<AuditLog>
             .HasColumnName("operation")
             .IsUnicode(false);
 
+        // ✅ Identificação do usuário
+        builder.Property(a => a.UserId)
+            .HasColumnName("userId")
+            .HasMaxLength(450)
+            .IsUnicode(false);
+
+        builder.Property(a => a.Username)
+            .HasColumnName("username")
+            .HasMaxLength(256)
+            .IsUnicode(false);
+
         // Índices para performance
         builder.HasIndex(a => a.RequestId)
             .HasDatabaseName("idx_ulogs_requestid");
@@ -67,5 +78,12 @@ public class AuditLogConfigurationEFCore : IEntityTypeConfiguration<AuditLog>
 
         builder.HasIndex(a => a.Operation)
             .HasDatabaseName("idx_ulogs_operation");
+
+        // ✅ Índices para consultas por usuário
+        builder.HasIndex(a => new { a.Username, a.UserId })
+            .HasDatabaseName("idx_ulogs_user");
+
+        builder.HasIndex(a => a.UserId)
+            .HasDatabaseName("idx_ulogs_userid");
     }
 }

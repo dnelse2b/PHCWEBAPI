@@ -349,6 +349,10 @@ public sealed class ResponseLoggingMiddleware
                 return;
             }
 
+            // ✅ Capturar informações do usuário autenticado
+            var userId = context.User?.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            var username = context.User?.Identity?.Name;
+
             auditLogService.LogResponseAsync(
                 responseDto,
                 context.TraceIdentifier,
@@ -357,7 +361,9 @@ public sealed class ResponseLoggingMiddleware
                 context.Request.Headers.UserAgent.ToString(),
                 context.Response.StatusCode,
                 requestBody,
-                responseJson
+                responseJson,
+                userId,
+                username
             );
         }
         catch (Exception ex)

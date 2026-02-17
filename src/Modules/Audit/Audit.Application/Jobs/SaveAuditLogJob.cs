@@ -27,7 +27,9 @@ public class SaveAuditLogJob
         string operation,
         string? requestBody = null,
         string? responseJson = null,
-        string? ipAddress = null)
+        string? ipAddress = null,
+        string? userId = null,
+        string? username = null)
     {
         try
         {
@@ -38,15 +40,17 @@ public class SaveAuditLogJob
                 operation: operation,
                 content: requestBody,      
                 responseText: responseJson,
-                ip: ipAddress
+                ip: ipAddress,
+                userId: userId,
+                username: username
             );
             
             await _repository.AddAsync(auditLog);
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error saving audit log for Operation: {Operation}, RequestId: {RequestId}", 
-                operation, requestId);
+            _logger.LogError(ex, "Error saving audit log for Operation: {Operation}, RequestId: {RequestId}, User: {Username}", 
+                operation, requestId, username);
             throw;
         }
     }
