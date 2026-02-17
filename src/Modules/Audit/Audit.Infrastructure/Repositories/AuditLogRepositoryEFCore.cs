@@ -128,4 +128,117 @@ public class AuditLogRepositoryEFCore : IAuditLogRepository
 
         return (logs, totalCount);
     }
+
+    /// <summary>
+    /// ✅ NOVO: Busca avançada com TODOS os filtros dinâmicos (otimizada para tabelas grandes)
+    /// </summary>
+    public async Task<(IEnumerable<AuditLog> logs, int totalCount)> GetAdvancedPagedAsync(
+        string? requestId = null,
+        DateTime? startDate = null,
+        DateTime? endDate = null,
+        string? code = null,
+        string? content = null,
+        string? ip = null,
+        string? operation = null,
+        string? responseDesc = null,
+        string? responseText = null,
+        bool useExactMatch = false,
+        int pageNumber = 1,
+        int pageSize = 50,
+        CancellationToken cancellationToken = default)
+    {
+        // ✅ Query base com AsNoTracking para MÁXIMA performance (não rastreia mudanças)
+        var query = _context.AuditLogs.AsNoTracking();
+
+        // ✅ Filtros aplicados NO BANCO (WHERE clauses otimizadas)
+
+        // Filtro por RequestId (Correlation ID)
+        if (!string.IsNullOrWhiteSpace(requestId))
+        {
+            if (useExactMatch)
+            {
+                query = query.Where(a => a.RequestId == requestId);
+            }
+            else
+            {
+                query = query.Where(a => a.RequestId != null && a.RequestId.Contains(requestId));
+            }
+        }
+
+        // Filtro por intervalo de Data/Hora
+        if (startDate.HasValue)
+        {
+            query = query.Where(a => a.Data >= startDate.Value);
+        }
+
+        if (endDate.HasValue)
+        {
+            // Incluir o dia inteiro (até 23:59:59)
+            var endDateInclusive = endDate.Value.Date.AddDays(1).AddSeconds(-1);
+            query = query.Where(a => a.Data <= endDateInclusive);
+        }
+
+        // Filtro por Code (geralmente exato)
+        if (!string.IsNullOrWhiteSpace(code))
+        {
+            query = query.Where(a => a.Code == code);
+        }
+
+        // Filtro por Content (sempre LIKE/Contains para JSON)
+        if (!string.IsNullOrWhiteSpace(content))
+        {
+            query = query.Where(a => a.Content != null && a.Content.Contains(content));
+        }
+
+        // Filtro por IP
+        if (!string.IsNullOrWhiteSpace(ip))
+        {
+            if (useExactMatch)
+            {
+                query = query.Where(a => a.Ip == ip);
+            }
+            else
+            {
+                query = query.Where(a => a.Ip != null && a.Ip.Contains(ip));
+            }
+        }
+
+        // Filtro por Operation
+        if (!string.IsNullOrWhiteSpace(operation))
+        {
+            if (useExactMatch)
+            {
+                query = query.Where(a => a.Operation == operation);
+            }
+            else
+            {
+                query = query.Where(a => a.Operation != null && a.Operation.Contains(operation));
+            }
+        }
+
+        // Filtro por ResponseDesc (sempre LIKE/Contains)
+        if (!string.IsNullOrWhiteSpace(responseDesc))
+        {
+            query = query.Where(a => a.ResponseDesc != null && a.ResponseDesc.Contains(responseDesc));
+        }
+
+        // Filtro por ResponseText (sempre LIKE/Contains para JSON)
+        if (!string.IsNullOrWhiteSpace(responseText))
+        {
+            query = query.Where(a => a.ResponseText != null && a.ResponseText.Contains(responseText));
+        }
+
+        // ✅ Contar total ANTES da paginação (query COUNT otimizada pelo SQL Server)
+        var totalCount = await query.CountAsync(cancellationToken);
+
+        // ✅ Aplicar ordenação (índice em Data) e paginação
+        var logs = await query
+            .OrderByDescending(a => a.Data) // Usa índice IX_u_logs_Data
+            .ThenByDescending(a => a.ULogsstamp) // Desempate por stamp
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync(cancellationToken);
+
+        return (logs, totalCount);
+    }
 }

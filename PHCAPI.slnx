@@ -1,10 +1,7 @@
 <Solution>
-  <Folder Name="/docs/">
-    <File Path="Arquitecture Build Guide.md" />
-  </Folder>
   <Folder Name="/src/">
-    <Project Path="src/SGOFAPI.Host/PHCAPI.Host.csproj" />
     <Project Path="src/Admin.UI/Admin.UI.csproj" />
+    <Project Path="src/SGOFAPI.Host/PHCAPI.Host.csproj" />
   </Folder>
   <Folder Name="/src/Modules/" />
   <Folder Name="/src/Modules/Audit/">

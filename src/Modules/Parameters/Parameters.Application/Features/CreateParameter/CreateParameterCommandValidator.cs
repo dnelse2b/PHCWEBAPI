@@ -7,23 +7,29 @@ public class CreateParameterCommandValidator : AbstractValidator<CreateParameter
     public CreateParameterCommandValidator()
     {
         RuleFor(x => x.Dto.Descricao)
-            .NotEmpty().WithMessage("Descricao is required")
-            .MaximumLength(200).WithMessage("Descricao must not exceed 200 characters");
+            .NotEmpty().WithMessage("A Descrição é obrigatória")
+            .MaximumLength(100).WithMessage("A Descrição não pode exceder 100 caracteres");
 
         RuleFor(x => x.Dto.Valor)
-            .NotEmpty().WithMessage("Valor is required")
-            .MaximumLength(500).WithMessage("Valor must not exceed 500 characters");
+            .NotEmpty().WithMessage("O Valor é obrigatório")
+            .MaximumLength(500).WithMessage("O Valor não pode exceder 500 caracteres");
 
         RuleFor(x => x.Dto.Tipo)
-            .NotEmpty().WithMessage("Tipo is required")
-            .MaximumLength(50).WithMessage("Tipo must not exceed 50 characters");
+            .NotEmpty().WithMessage("O Tipo é obrigatório")
+            .MaximumLength(50).WithMessage("O Tipo não pode exceder 50 caracteres");
 
         RuleFor(x => x.Dto.Dec)
-            .GreaterThanOrEqualTo(0).WithMessage("Dec must be greater than or equal to 0")
+            .GreaterThanOrEqualTo(0).WithMessage("Dec deve ser maior ou igual a 0")
+            .LessThanOrEqualTo(10).WithMessage("Dec deve ser menor ou igual a 10")
             .When(x => x.Dto.Dec.HasValue);
 
+        // Validação condicional: Dec é obrigatório quando Tipo = "N" (Numérico)
+        RuleFor(x => x.Dto.Dec)
+            .NotNull().WithMessage("Dec é obrigatório para parâmetros do tipo Numérico")
+            .When(x => x.Dto.Tipo == "N");
+
         RuleFor(x => x.Dto.Tam)
-            .GreaterThanOrEqualTo(0).WithMessage("Tam must be greater than 0")
+            .GreaterThanOrEqualTo(0).WithMessage("Tam deve ser maior ou igual a 0")
             .When(x => x.Dto.Tam.HasValue);
     }
 }

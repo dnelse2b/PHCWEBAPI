@@ -15,10 +15,7 @@ using Parameters.Application.DTOs.Parameters;
 
 namespace Parameters.Presentation.REST.Controllers;
 
-/// <summary>
-/// Parameters controller - Manages business parameters
-/// 🛡️ SECURITY: Each endpoint has specific authorization requirements
-/// </summary>
+
 [ApiController]
 [Route("api/parameters")]
 [Produces("application/json")]
@@ -30,7 +27,7 @@ public sealed class ParametersController : ControllerBase
 
 
     [HttpGet]
-    [Authorize(Roles = $"{AppRoles.Rail2Port},{AppRoles.Administrator}")]  // ✅ Usuário precisa ter Rail2Port OU Administrator
+    [Authorize(Roles = $"{AppRoles.Administrator}")]  // ✅ Usuário precisa ter Rail2Port OU Administrator
     [EnableRateLimiting("parameters-query")]
     [ProducesResponseType(typeof(ResponseDTO), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ResponseDTO), StatusCodes.Status500InternalServerError)]
@@ -45,7 +42,7 @@ public sealed class ParametersController : ControllerBase
 
 
     [HttpGet("{para1Stamp}")]
-    [Authorize(Roles = $"{AppRoles.Rail2Port},{AppRoles.Administrator}")]  // ✅ Precisa ter Rail2Port E Administrator
+    [Authorize(Roles = $"{AppRoles.Administrator}")]  // ✅ Precisa ter Rail2Port E Administrator
     [EnableRateLimiting("parameters-query")]
     [ProducesResponseType(typeof(ResponseDTO), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ResponseDTO), StatusCodes.Status404NotFound)]
@@ -62,15 +59,8 @@ public sealed class ParametersController : ControllerBase
             : Ok(ResponseDTO.Success(data: result, correlationId: correlationId));
     }
 
-    /// <summary>
-    /// Create a new parameter
-    /// 🟠 Rate limited to 5 creates per minute to prevent spam
-    /// 🔒 OPÇÃO 3 - Policy + Role: Requer (ApiAccess) E Rail2Port
-    /// ApiAccess = Administrator OU ApiUser OU InternalUser
-    /// </summary>
     [HttpPost]
-    [Authorize(Policy = AppPolicies.ApiAccess)]   // ✅ Precisa ter Administrator OU ApiUser OU InternalUser
-    [Authorize(Roles = AppRoles.Rail2Port)]       // ✅ E TAMBÉM precisa ter Rail2Port
+    [Authorize(Policy = AppPolicies.ApiAccess)]   // ✅ Precisa ter Administrator OU ApiUser OU InternalUser     // ✅ E TAMBÉM precisa ter Rail2Port
     [EnableRateLimiting("parameters-create")]
     [ProducesResponseType(typeof(ResponseDTO), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ResponseDTO), StatusCodes.Status400BadRequest)]
@@ -89,13 +79,9 @@ public sealed class ParametersController : ControllerBase
             ResponseDTO.Success(data: result, content: ResponseCodes.Parameter.CreatedSuccessfully, correlationId: correlationId));
     }
 
-    /// <summary>
-    /// Update an existing parameter
-    /// 🟡 Rate limited to 10 updates per minute
-    /// 🔒 Múltiplas roles com OR: Rail2Port OU ApiUser OU Administrator
-    /// </summary>
+   
     [HttpPut("{para1Stamp}")]
-    [Authorize(Roles = $"{AppRoles.Rail2Port},{AppRoles.ApiUser},{AppRoles.Administrator}")]  // ✅ Qualquer uma dessas 3 roles
+    [Authorize(Roles = $"{AppRoles.ApiUser},{AppRoles.Administrator}")]  // ✅ Qualquer uma dessas 3 roles
     [EnableRateLimiting("parameters-update")]
     [ProducesResponseType(typeof(ResponseDTO), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ResponseDTO), StatusCodes.Status400BadRequest)]
@@ -112,11 +98,7 @@ public sealed class ParametersController : ControllerBase
         return Ok(ResponseDTO.Success(data: result, content: ResponseCodes.Parameter.UpdatedSuccessfully, correlationId: correlationId));
     }
 
-    /// <summary>
-    /// Delete a parameter (soft delete)
-    /// 🔴 Rate limited to 3 deletes per minute (critical operation)
-    /// 🔒 Apenas Administrator (mais restritivo)
-    /// </summary>
+
     [HttpDelete("{para1Stamp}")]
     [Authorize(Roles = AppRoles.Administrator)]  // ✅ Apenas Administrator
     [EnableRateLimiting("parameters-delete")]

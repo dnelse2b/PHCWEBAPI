@@ -23,7 +23,7 @@ public static class DependencyInjection
         services.AddMediatR(cfg =>
         {
             cfg.RegisterServicesFromAssembly(typeof(Application.Features.CreateParameter.CreateParameterCommand).Assembly);
-            cfg.AddOpenBehavior(typeof(LoggingBehavior<,>));
+           // cfg.AddOpenBehavior(typeof(LoggingBehavior<,>));
             cfg.AddOpenBehavior(typeof(ValidationBehavior<,>));
         });
 

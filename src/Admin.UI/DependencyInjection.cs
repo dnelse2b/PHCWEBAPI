@@ -28,6 +28,7 @@ public static class DependencyInjection
             // Require authentication for all admin pages (except login/logout/access denied)
             options.Conventions.AuthorizeFolder("/Users", "AdminOnly");
             options.Conventions.AuthorizeFolder("/Roles", "AdminOnly");
+            options.Conventions.AuthorizeFolder("/Logs", "InternalOnly"); // ✅ Logs: Admin + AuditViewer
             options.Conventions.AllowAnonymousToPage("/Account/Login");
             options.Conventions.AllowAnonymousToPage("/Account/Logout");
             options.Conventions.AllowAnonymousToPage("/Account/AccessDenied");

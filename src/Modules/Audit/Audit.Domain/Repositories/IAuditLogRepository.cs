@@ -72,4 +72,37 @@ public interface IAuditLogRepository
         int pageNumber = 1,
         int pageSize = 50,
         CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// ✅ NOVO: Busca avançada paginada com todos os filtros dinâmicos (otimizada para performance)
+    /// Retorna tupla com (logs, totalCount)
+    /// </summary>
+    /// <param name="requestId">Request/Correlation ID (exato ou contains)</param>
+    /// <param name="startDate">Data inicial (opcional)</param>
+    /// <param name="endDate">Data final (opcional)</param>
+    /// <param name="code">Código de resposta (exato)</param>
+    /// <param name="content">Conteúdo (contains - LIKE)</param>
+    /// <param name="ip">Endereço IP (exato ou contains)</param>
+    /// <param name="operation">Operação (exato ou contains)</param>
+    /// <param name="responseDesc">Descrição da resposta (contains - LIKE)</param>
+    /// <param name="responseText">Texto da resposta (contains - LIKE)</param>
+    /// <param name="useExactMatch">Se true, usa match exato para campos de texto; se false, usa LIKE/Contains</param>
+    /// <param name="pageNumber">Número da página (1-based)</param>
+    /// <param name="pageSize">Tamanho da página</param>
+    /// <param name="cancellationToken">Token de cancelamento</param>
+    /// <returns>Tupla com lista de logs e total de registros</returns>
+    Task<(IEnumerable<AuditLog> logs, int totalCount)> GetAdvancedPagedAsync(
+        string? requestId = null,
+        DateTime? startDate = null,
+        DateTime? endDate = null,
+        string? code = null,
+        string? content = null,
+        string? ip = null,
+        string? operation = null,
+        string? responseDesc = null,
+        string? responseText = null,
+        bool useExactMatch = false,
+        int pageNumber = 1,
+        int pageSize = 50,
+        CancellationToken cancellationToken = default);
 }
