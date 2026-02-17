@@ -19,6 +19,9 @@ public static class DependencyInjection
         // Register AdminUI settings (logo, colors, etc.)
         services.Configure<AdminUISettings>(configuration.GetSection("AdminUI"));
         
+        // ✅ Add HttpClient for API calls
+        services.AddHttpClient();
+        
         // Add Razor Pages
         services.AddRazorPages(options =>
         {
@@ -28,6 +31,7 @@ public static class DependencyInjection
             // Require authentication for all admin pages (except login/logout/access denied)
             options.Conventions.AuthorizeFolder("/Users", "AdminOnly");
             options.Conventions.AuthorizeFolder("/Roles", "AdminOnly");
+            options.Conventions.AuthorizeFolder("/Providers", "AdminOnly"); // ✅ Providers management
             options.Conventions.AuthorizeFolder("/Logs", "InternalOnly"); // ✅ Logs: Admin + AuditViewer
             options.Conventions.AllowAnonymousToPage("/Account/Login");
             options.Conventions.AllowAnonymousToPage("/Account/Logout");

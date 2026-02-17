@@ -40,7 +40,9 @@ public class ProviderRepositoryEFCore : IProviderRepository
 
     public async Task<IEnumerable<Provider>> GetAllAsync(bool includeInactive = false, CancellationToken cancellationToken = default)
     {
-        var query = _context.Providers.AsQueryable();
+        var query = _context.Providers
+            .Include(p => p.Values)  // ✅ Carregar linhas (Values)
+            .AsQueryable();
 
         if (!includeInactive)
             query = query.Where(p => p.Ativo);
@@ -50,7 +52,9 @@ public class ProviderRepositoryEFCore : IProviderRepository
 
     public async Task<IEnumerable<Provider>> GetByEnvironmentAsync(string environment, bool includeInactive = false, CancellationToken cancellationToken = default)
     {
-        var query = _context.Providers.Where(p => p.Environment == environment);
+        var query = _context.Providers
+            .Include(p => p.Values)  // ✅ Carregar linhas (Values)
+            .Where(p => p.Environment == environment);
 
         if (!includeInactive)
             query = query.Where(p => p.Ativo);

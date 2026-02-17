@@ -6,6 +6,24 @@ using Providers.Application.DTOs.Providers;
 
 namespace Providers.Application.Mappings;
 
+/// <summary>
+/// Configuração do Mapster para Provider
+/// </summary>
+public static class ProviderMappingConfig
+{
+    public static void Configure()
+    {
+        // ✅ Provider → ProviderOutputDTO (incluindo Values)
+        TypeAdapterConfig<Provider, ProviderOutputDTO>
+            .NewConfig()
+            .Map(dest => dest.Values, src => src.Values);
+
+        // ✅ ProviderValue → ProviderValueItemDTO
+        TypeAdapterConfig<ProviderValue, ProviderValueItemDTO>
+            .NewConfig();
+    }
+}
+
 public sealed class ProviderMapper : IDomainMapper<Provider, ProviderOutputDTO>
 {
     public TDto ToDto<TDto>(Provider entity) where TDto : class

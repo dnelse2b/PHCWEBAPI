@@ -93,6 +93,10 @@ public sealed class AuditLoggingFilter : IAsyncActionFilter
             var ipAddress = httpContext.Connection.RemoteIpAddress?.ToString();
             var userAgent = request.Headers.UserAgent.ToString();
 
+            // ✅ Capturar informações do usuário autenticado
+            var userId = httpContext.User?.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            var username = httpContext.User?.Identity?.Name;
+
             // ✅ Serializar o que foi retornado (sucesso OU erro)
             var responseJson = TrySerializeToJson(responseValue);
 
@@ -104,7 +108,9 @@ public sealed class AuditLoggingFilter : IAsyncActionFilter
                 userAgent,
                 statusCode,
                 requestBody,
-                responseJson
+                responseJson,
+                userId,
+                username
             );
 
             _logger.LogDebug(

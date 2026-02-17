@@ -24,7 +24,11 @@ var builder = WebApplication.CreateBuilder(args);
 Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .Enrich.FromLogContext()
-    .WriteTo.File("logs/PHCAPI-.txt", rollingInterval: RollingInterval.Day)
+    .WriteTo.File(
+        path: "logs/PHCAPI-.txt",
+        rollingInterval: RollingInterval.Day,
+        shared: true,  // ✅ Permite múltiplos processos escreverem no mesmo arquivo
+        flushToDiskInterval: TimeSpan.FromSeconds(1))
     .CreateLogger();
 
 builder.Host.UseSerilog();

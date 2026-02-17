@@ -17,4 +17,9 @@ public record ProviderOutputDTO
     public DateTime? UsrData { get; init; }
     public string? UsrHora { get; init; }
     public string? UsrInis { get; init; }
+    
+    /// <summary>
+    /// Lista de valores (linhas) associados a este Provider
+    /// </summary>
+    public List<ProviderValueItemDTO> Values { get; init; } = new();
 }

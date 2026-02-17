@@ -13,6 +13,9 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddProvidersApplication(this IServiceCollection services)
     {
+        // Configurar mappings do Mapster
+        ProviderMappingConfig.Configure();
+
         // Mappers
         services.AddSingleton<IDomainMapper<Provider, ProviderOutputDTO>, ProviderMapper>();
 
