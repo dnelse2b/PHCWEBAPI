@@ -4,24 +4,20 @@ Este projeto está configurado como um template .NET reutilizável.
 
 ## 🚀 Instalação Rápida
 
-### Opção 1: Git Repository (Recomendado - Direto do GitHub) 🌐
+### Opção 1: Clone + Install (Recomendado) 🌐
 ```powershell
-# Instalar diretamente do GitHub (qualquer pessoa, qualquer lugar)
-dotnet new install https://github.com/dnelse2b/PHCWEBAPI.git
+# 1. Clonar do GitHub
+git clone https://github.com/dnelse2b/PHCWEBAPI.git
+cd PHCWEBAPI
+
+# 2. Instalar o template
+dotnet new install .
 ```
 
-### Opção 2: Local PowerShell
+### Opção 2: PowerShell Script (Se já clonou)
 ```powershell
-# Se você clonou o repositório localmente
 cd PHCWEBAPI
 .\.template.config\install-template.ps1
-```
-
-### Opção 3: Manual Local
-```powershell
-# No diretório do projeto clonado
-cd PHCWEBAPI
-dotnet new install .
 ```
 
 ## 📝 Criar Novo Projeto
@@ -116,8 +112,10 @@ dotnet new uninstall .
 
 ```powershell
 # Quando houver atualizações no GitHub
+cd PHCWEBAPI
+git pull
 dotnet new uninstall PHCAPI.Template
-dotnet new install https://github.com/dnelse2b/PHCWEBAPI.git
+dotnet new install .
 ```
 
 ## 📦 Distribuir Como NuGet Package

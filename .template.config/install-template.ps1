@@ -4,16 +4,17 @@ Write-Host "  Instalando Template PHCAPI" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 
-# Verificar se estamos no diretório correto ou instalar do GitHub
-if (Test-Path "$PSScriptRoot\..\PHCAPI.slnx") {
-    # Instalação local
-    $templatePath = Split-Path $PSScriptRoot
-    Write-Host "Instalando de diretório local..." -ForegroundColor Yellow
-} else {
-    # Instalação do GitHub
-    $templatePath = "https://github.com/dnelse2b/PHCWEBAPI.git"
-    Write-Host "Instalando do GitHub..." -ForegroundColor Yellow
+$templatePath = Split-Path $PSScriptRoot
+
+# Verificar se estamos no diretório correto
+if (-not (Test-Path "$templatePath\PHCAPI.slnx")) {
+    Write-Host "ERRO: Execute este script da pasta PHCWEBAPI!" -ForegroundColor Red
+    Write-Host ""
+    Write-Host "Caminho esperado: .template.config\install-template.ps1" -ForegroundColor Yellow
+    exit 1
 }
+
+Write-Host "Instalando de: $templatePath" -ForegroundColor Yellow
 
 # Verificar se já está instalado
 Write-Host "Verificando templates instalados..." -ForegroundColor Yellow
@@ -26,7 +27,7 @@ if ($installedTemplates -match "phcapi") {
 }
 
 # Instalar template
-Write-Host "Instalando template de: $templatePath" -ForegroundColor Green
+Write-Host "Instalando template..." -ForegroundColor Green
 dotnet new install $templatePath
 
 Write-Host ""

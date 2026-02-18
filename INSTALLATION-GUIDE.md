@@ -5,15 +5,21 @@
 ### Para qualquer pessoa na equipe:
 
 ```powershell
-# Uma única linha - instala direto do GitHub
-dotnet new install https://github.com/dnelse2b/PHCWEBAPI.git
+# 1. Clonar o repositório
+git clone https://github.com/dnelse2b/PHCWEBAPI.git
+
+# 2. Entrar na pasta
+cd PHCWEBAPI
+
+# 3. Instalar o template
+dotnet new install .
 ```
 
 ✅ **Vantagens:**
-- Não precisa clonar o repositório
-- Sempre pega a versão mais recente
-- Funciona de qualquer lugar
-- Ideal para distribuir para a equipe
+- Fácil de atualizar (git pull)
+- Acesso ao código-fonte do template
+- Pode ser customizado localmente
+- Ideal para equipes
 
 ---
 
@@ -64,17 +70,15 @@ dotnet new phcapi -n SimplesAPI --parameters false --providers false
 
 ## 🔄 Atualizar Template
 
-### Se instalou do GitHub:
 ```powershell
-dotnet new uninstall PHCAPI.Template
-dotnet new install https://github.com/dnelse2b/PHCWEBAPI.git
-```
-
-### Se instalou localmente:
-```powershell
+# 1. Ir para a pasta do template
 cd PHCWEBAPI
+
+# 2. Puxar atualizações do GitHub
 git pull
-dotnet new uninstall .
+
+# 3. Reinstalar
+dotnet new uninstall PHCAPI.Template
 dotnet new install .
 ```
 
@@ -116,10 +120,13 @@ Para criar APIs com nossa arquitetura padrão:
 
 1. Instalar o template:
    dotnet new install https://github.com/dnelse2b/PHCWEBAPI.git
+Clonar e instalar o template:
+   git clone https://github.com/dnelse2b/PHCWEBAPI.git
+   cd PHCWEBAPI
+   dotnet new install .
 
-2. Criar seu projeto:
-   dotnet new phcapi -n NomeDaSuaAPI
-
+2. Criar seu projeto (em qualquer pasta):
+   cd ..
 3. Configurar e executar:
    cd NomeDaSuaAPI
    dotnet restore
@@ -128,39 +135,26 @@ Para criar APIs com nossa arquitetura padrão:
 
 ---
 
-## 🔒 Repositório Privado (Se necessário)
-
-Se o repositório se tornar privado:
-
-```powershell
-# Configurar credenciais do Git
-git config --global credential.helper store
-
-# Instalar (vai pedir credenciais na primeira vez)
-dotnet new install https://github.com/dnelse2b/PHCWEBAPI.git
-
-# Ou usar token diretamente
-dotnet new install https://ghp_SEU_TOKEN@github.com/dnelse2b/PHCWEBAPI.git
-```
-
----
-
 ## ❓ Problemas Comuns
 
-### "No templates found matching: 'phcapi'"
-**Solução:** Template não está instalado
-```powershell
-dotnet new install https://github.com/dnelse2b/PHCWEBAPI.git
+git clone https://github.com/dnelse2b/PHCWEBAPI.git
+cd PHCWEBAPI
+dotnet new install .
 ```
 
 ### "Template already installed"
 **Solução:** Desinstale e reinstale
 ```powershell
 dotnet new uninstall PHCAPI.Template
-dotnet new install https://github.com/dnelse2b/PHCWEBAPI.git
+cd PHCWEBAPI
+dotnet new install .
 ```
 
-### Falha ao conectar no GitHub
+### Erro ao clonar (repositório privado)
+**Solução:** Configure credenciais Git
+```powershell
+git config --global credential.helper store
+git clone https://github.com/dnelse2b/PHCWEBAPI.git
 **Solução:** Verifique sua conexão e credenciais Git
 ```powershell
 git config --global credential.helper store

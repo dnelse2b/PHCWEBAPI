@@ -8,10 +8,15 @@ Template profissional para criação de APIs modulares usando ASP.NET Core com C
 ## 🚀 Instalação Rápida
 
 ```powershell
-# Instalar o template direto do GitHub
-dotnet new install https://github.com/dnelse2b/PHCWEBAPI.git
+# 1. Clonar o repositório
+git clone https://github.com/dnelse2b/PHCWEBAPI.git
+cd PHCWEBAPI
 
-# Criar seu projeto
+# 2. Instalar o template
+dotnet new install .
+
+# 3. Criar seu projeto (em qualquer lugar)
+cd ..
 dotnet new phcapi -n MeuProjeto
 ```
 
@@ -122,7 +127,9 @@ dotnet new phcapi --help
 
 ### 1. Instalar Template
 ```powershell
-dotnet new install https://github.com/dnelse2b/PHCWEBAPI.git
+git clone https://github.com/dnelse2b/PHCWEBAPI.git
+cd PHCWEBAPI
+dotnet new install .
 ```
 
 ### 2. Criar Projeto
@@ -169,11 +176,13 @@ Após criar seu projeto, veja a documentação completa em:
 ---
 
 ## 🔄 Atualizar Template
+1. Atualizar o repositório
+cd PHCWEBAPI
+git pull
 
-```powershell
-# Desinstalar versão antiga
+# 2. Reinstalar
 dotnet new uninstall PHCAPI.Template
-
+dotnet new install .
 # Instalar versão mais recente
 dotnet new install https://github.com/dnelse2b/PHCWEBAPI.git
 ```
