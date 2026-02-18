@@ -2,6 +2,13 @@
 
 Template para criar APIs modulares baseadas em Clean Architecture com ASP.NET Core.
 
+## 🚀 Instalação Rápida
+
+```powershell
+# Instalar direto do GitHub
+dotnet new install https://github.com/dnelse2b/PHCWEBAPI.git
+```
+
 ## Estrutura
 
 ```
@@ -27,6 +34,12 @@ Template para criar APIs modulares baseadas em Clean Architecture com ASP.NET Co
 
 ### 1. Instalar o Template
 
+**Via GitHub (Recomendado):**
+```powershell
+dotnet new install https://github.com/dnelse2b/PHCWEBAPI.git
+```
+
+**Via Local (se você clonou o repo):**
 ```powershell
 # A partir do diretório do template
 dotnet new install .
@@ -73,7 +86,14 @@ dotnet build
 dotnet ef database update --project src/SGOFAPI.Host
 
 # Executar
-dotnet run --project src/SGOFAPI.Host
+dotnet run --project PHCAPI.Template
+```
+
+## Atualizar Template
+
+```powershell
+dotnet new uninstall PHCAPI.Template
+dotnet new install https://github.com/dnelse2b/PHCWEBAPI.gitrc/SGOFAPI.Host
 ```
 
 ## Desinstalar Template

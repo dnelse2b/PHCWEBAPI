@@ -4,15 +4,23 @@ Este projeto está configurado como um template .NET reutilizável.
 
 ## 🚀 Instalação Rápida
 
-### Opção 1: PowerShell (Recomendado)
+### Opção 1: Git Repository (Recomendado - Direto do GitHub) 🌐
 ```powershell
-# Execute o script de instalação
+# Instalar diretamente do GitHub (qualquer pessoa, qualquer lugar)
+dotnet new install https://github.com/dnelse2b/PHCWEBAPI.git
+```
+
+### Opção 2: Local PowerShell
+```powershell
+# Se você clonou o repositório localmente
+cd PHCWEBAPI
 .\.template.config\install-template.ps1
 ```
 
-### Opção 2: Manual
+### Opção 3: Manual Local
 ```powershell
-# No diretório do projeto
+# No diretório do projeto clonado
+cd PHCWEBAPI
 dotnet new install .
 ```
 
@@ -96,14 +104,20 @@ dotnet new phcapi -n PostgresAPI --database PostgreSQL
 
 ## 🗑️ Desinstalar Template
 
-### PowerShell
 ```powershell
-.\.template.config\uninstall-template.ps1
+# Desinstalar por nome
+dotnet new uninstall PHCAPI.Template
+
+# Ou desinstalar da pasta local (se você clonou)
+dotnet new uninstall .
 ```
 
-### Manual
+## 🔄 Atualizar Template (Nova Versão)
+
 ```powershell
-dotnet new uninstall .
+# Quando houver atualizações no GitHub
+dotnet new uninstall PHCAPI.Template
+dotnet new install https://github.com/dnelse2b/PHCWEBAPI.git
 ```
 
 ## 📦 Distribuir Como NuGet Package
