@@ -35,4 +35,23 @@
     <Project Path="src/Shared/Shared.Infrastructure/Shared.Infrastructure/Shared.Infrastructure.csproj" />
     <Project Path="src/Shared/Shared.Kernel/Shared.Kernel/Shared.Kernel.csproj" />
   </Folder>
+  <Folder Name="/docs/">
+    <File Path="docs/Architecture.md" />
+    <File Path="docs/COMO-EXECUTAR-PHCAPI.md" />
+    <File Path="docs/Standard-Modules-Management-GUIDE.md" />
+  </Folder>
+  <Folder Name="/docs/patterns/">
+    <File Path="docs/patterns/BehaviorPattern.md" />
+    <File Path="docs/patterns/CommandPattern.md" />
+    <File Path="docs/patterns/ControllerPattern.md" />
+    <File Path="docs/patterns/DependencyInjectionPattern.md" />
+    <File Path="docs/patterns/DTOPattern.md" />
+    <File Path="docs/patterns/EntityPattern.md" />
+    <File Path="docs/patterns/InfrastructurePattern.md" />
+    <File Path="docs/patterns/MappingPattern.md" />
+    <File Path="docs/patterns/QueryPattern.md" />
+    <File Path="docs/patterns/RepositoryPattern.md" />
+    <File Path="docs/patterns/TestingPattern.md" />
+    <File Path="docs/patterns/ValidatorPattern.md" />
+  </Folder>
 </Solution>
